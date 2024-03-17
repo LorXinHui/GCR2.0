@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mentor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:paddingTop="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:title="Name"
+        android:typeface="monospace" />
+
+    <TextView
+        android:id="@+id/mentor_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:lineSpacingExtra="8sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:title="Job Description" />
+
+    <Button
+        android:id="@+id/mentorButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/dark_button_background"
+        android:fontFamily="serif"
+        android:includeFontPadding="false"
+        android:text="Send Mentorship Request"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/requestSentText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Mentorship Request Sent"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_8"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+</LinearLayout>
