@@ -16,9 +16,13 @@
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />
 
+<<<<<<< HEAD
     <item
         android:id="@+id/navigation_mentorship"
         android:icon="@drawable/ic_mentorship_black_24dp"
         android:title="@string/title_mentorship" />
 
 </menu>
+=======
+</menu>
+>>>>>>> origin/main

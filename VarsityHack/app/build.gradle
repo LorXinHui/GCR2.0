@@ -40,7 +40,10 @@ dependencies {
     implementation libs.lifecycle.viewmodel.ktx
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+<<<<<<< HEAD
     //implementation libs.material
+=======
+>>>>>>> origin/main
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
