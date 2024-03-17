@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24" />
+
+    <item
+        android:id="@+id/community"
+        android:title="Communities"
+        android:icon="@drawable/baseline_community_24" />
+
+    <item
+        android:id="@+id/mentorship"
+        android:title="Industrial Mentorship"
+        android:icon="@drawable/baseline_mentorship_24" />
+
+    <item
+        android:id="@+id/certification"
+        android:title="Courses"
+        android:icon="@drawable/baseline_certification_24" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/baseline_profile_24" />
+</menu>
