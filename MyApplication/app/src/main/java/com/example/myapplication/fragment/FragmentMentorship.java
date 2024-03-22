@@ -87,7 +87,6 @@ public class FragmentMentorship extends Fragment implements View.OnClickListener
         // Add some invitation items to the list
         invitationItemList.add(new InvitationItem("Elena Rodriguez", "UX Designer"));
         invitationItemList.add(new InvitationItem("Malik Patel", "Data Scientist"));
-        invitationItemList.add(new InvitationItem("Maxwell Lee", "Financial Analyst"));
         InvitationAdapter invitationAdapter = new InvitationAdapter(invitationItemList);
         invitationView.setAdapter(invitationAdapter);
 
