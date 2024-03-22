@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else if (itemId == R.id.community) {
             getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentCommunity).commit();
-            setTitle("Communitittes");
+            setTitle("Communities");
             return true;
         } else if (itemId == R.id.mentorship) {
             getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentMentorship).commit();
