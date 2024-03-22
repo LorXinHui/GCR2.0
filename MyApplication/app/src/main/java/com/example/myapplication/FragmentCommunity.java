@@ -2,11 +2,20 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,13 @@ public class FragmentCommunity extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // search View param
+    private SearchView searchView;
+    private RecyclerView recyclerView;
+    private List<Community> communities = new ArrayList<>();
+
+    private CommunityAdapter communityAdapter;
 
     public FragmentCommunity() {
         // Required empty public constructor
@@ -53,6 +69,7 @@ public class FragmentCommunity extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -60,5 +77,67 @@ public class FragmentCommunity extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_community, container, false);
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        dataInitialize();
+
+        recyclerView = view.findViewById(R.id.communityRV);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        communityAdapter = new CommunityAdapter();
+        communityAdapter.setData(communities);
+        recyclerView.setAdapter(communityAdapter);
+        communityAdapter.notifyDataSetChanged();
+
+        searchView = view.findViewById(R.id.search_community);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+          @Override
+          public boolean onQueryTextSubmit(String query) {
+              return false;
+          }
+
+          @Override
+          public boolean onQueryTextChange(String newText) {
+              filterList(newText);
+              return true;
+          }
+      }
+
+        );
+
+    }
+
+    private void filterList(String text){
+        List<Community> filteredCommunity = new ArrayList<>();
+        for (Community c: communities){
+            if (c.getCommunityName().toLowerCase().contains(text.toLowerCase())){
+                filteredCommunity.add(c);
+            }
+        }
+        if (filteredCommunity.isEmpty()){
+            Toast noCommunity = Toast.makeText(getActivity(), "No community found", Toast.LENGTH_SHORT);
+            noCommunity.show();
+
+        }else{
+            communityAdapter.setFilteredCommunities(filteredCommunity);
+        }
+    }
+
+
+    private void dataInitialize(){
+        Community c1 = new Community("FinanceTalk Hub",
+                "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry");
+
+        Community c2 = new Community("Fintech Frontiers Forum",
+                "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance.");
+
+        communities.add(c1);
+        communities.add(c2);
     }
 }
