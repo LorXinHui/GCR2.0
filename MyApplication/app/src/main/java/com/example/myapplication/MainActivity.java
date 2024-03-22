@@ -1,17 +1,16 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.SearchView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.fragment.FragmentCertification;
+import com.example.myapplication.fragment.FragmentCommunity;
+import com.example.myapplication.fragment.FragmentHome;
+import com.example.myapplication.fragment.FragmentMentorship;
+import com.example.myapplication.fragment.FragmentProfile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /*

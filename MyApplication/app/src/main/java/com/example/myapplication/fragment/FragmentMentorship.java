@@ -1,10 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.fragment;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,8 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SearchView;
 import android.widget.TextView;
+
+import com.example.myapplication.items.InvitationItem;
+import com.example.myapplication.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +26,7 @@ import java.util.List;
  * Use the {@link FragmentMentorship#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentMentorship extends Fragment {
+public class FragmentMentorship extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,6 +36,7 @@ public class FragmentMentorship extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FloatingActionButton messageFab;
 
     public FragmentMentorship() {
         // Required empty public constructor
@@ -102,9 +106,21 @@ public class FragmentMentorship extends Fragment {
         MentorshipAdapter mentorshipAdapter = new MentorshipAdapter(mentorshipList);
         mentorshipView.setAdapter(mentorshipAdapter);
 
+        messageFab = rootView.findViewById(R.id.message_fab);
+        messageFab.setOnClickListener(this);
+
         return rootView;
     }
 
+    FragmentMesssage fragmentMesssage = new FragmentMesssage();
+    @Override
+    public void onClick(View v) {
+        if (v == messageFab){
+            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.flFragment, fragmentMesssage);
+            transaction.commit();
+        }
+    }
 }
 
 class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.InvitationViewHolder> {

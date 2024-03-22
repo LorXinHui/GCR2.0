@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.items;
 
 public class InvitationItem {
     private String name;
