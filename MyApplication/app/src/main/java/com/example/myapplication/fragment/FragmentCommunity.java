@@ -3,10 +3,12 @@ package com.example.myapplication.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 
@@ -15,7 +17,7 @@ import com.example.myapplication.R;
  * Use the {@link FragmentCommunity#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentCommunity extends Fragment {
+public class FragmentCommunity extends Fragment implements View.OnClickListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +27,7 @@ public class FragmentCommunity extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView textView;
 
     public FragmentCommunity() {
         // Required empty public constructor
@@ -36,7 +39,7 @@ public class FragmentCommunity extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentCommunity.
+     * @return A new instance of fragment FragmentCommunityNews.
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentCommunity newInstance(String param1, String param2) {
@@ -61,6 +64,22 @@ public class FragmentCommunity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_community, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_community, container, false);
+
+        textView = rootView.findViewById(R.id.text_community);
+        textView.setOnClickListener(this);
+
+        return rootView;
+    }
+
+    FragmentNews fragmentNews = new FragmentNews();
+
+    @Override
+    public void onClick(View v) {
+        if (v == textView){
+            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.flFragment, fragmentNews);
+            transaction.commit();
+        }
     }
 }

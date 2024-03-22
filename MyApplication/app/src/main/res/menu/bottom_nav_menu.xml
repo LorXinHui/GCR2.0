@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/mentorship"
-        android:title="Industrial Mentorship"
+        android:title="Mentorship"
         android:icon="@drawable/baseline_mentorship_24" />
 
     <item
