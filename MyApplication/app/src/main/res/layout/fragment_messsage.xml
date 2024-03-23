@@ -27,6 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
+        android:paddingStart="5dp"
+        android:paddingBottom="5dp"
         android:shadowColor="#80000000"
         android:shadowDx="2"
         android:shadowDy="2"
@@ -48,8 +50,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/message"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_message" />
