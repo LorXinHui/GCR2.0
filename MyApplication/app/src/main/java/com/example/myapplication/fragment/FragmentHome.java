@@ -2,15 +2,30 @@ package com.example.myapplication.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.myapplication.Community;
+import com.example.myapplication.CommunityAdapter;
 import com.example.myapplication.R;
+import com.example.myapplication.items.CourseItem;
+import com.example.myapplication.items.MessageItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +39,10 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private FloatingActionButton messageFab;
+
+    private RecyclerView recyclerView;
+    private List<Community> communities = new ArrayList<>();
+    private CommunityAdapter communityAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -69,6 +88,37 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
         messageFab = rootView.findViewById(R.id.message_fab);
         messageFab.setOnClickListener(this);
 
+        RecyclerView communityView = rootView.findViewById(R.id.community_list);
+        LinearLayoutManager communityLayout = new LinearLayoutManager(getActivity());
+        communityView.setLayoutManager(communityLayout);
+
+        List<Community> communityList = new ArrayList<>();
+        communityList.add(new Community("FinanceTalk Hub",
+                "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry"));
+        communityList.add(new Community("Fintech Frontiers Forum",
+                "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance."));
+        CommunityAdapter communityAdapter = new CommunityAdapter(getActivity().getSupportFragmentManager());
+        communityAdapter.setData(communityList);
+        communityView.setAdapter(communityAdapter);
+
+        RecyclerView courseView = rootView.findViewById(R.id.course_list);
+        LinearLayoutManager courseManager = new LinearLayoutManager(getActivity());
+        courseView.setLayoutManager(courseManager);
+
+        List<CourseItem> courseList = new ArrayList<>();
+        courseList.add(new CourseItem(
+                "Entrepreneurship and Innovation",
+                "Professional",
+                30
+        ));
+        courseList.add(new CourseItem(
+                "Investment Management",
+                "Casual",
+                80
+        ));
+        CourseAdapter courseAdapter = new CourseAdapter(courseList);
+        courseView.setAdapter(courseAdapter);
+
         return rootView;
     }
 
@@ -79,6 +129,50 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
             FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.flFragment, fragmentMesssage);
             transaction.commit();
+        }
+    }
+}
+
+class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
+    private List<CourseItem> courseItems;
+
+    public CourseAdapter(List<CourseItem> courseItems) {
+        this.courseItems = courseItems;
+    }
+
+    @NonNull
+    @Override
+    public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_item, parent, false);
+        return new CourseViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
+        CourseItem courseItem = courseItems.get(position);
+        holder.nameTextView.setText(courseItem.getCourseName());
+        holder.categoryTextView.setText(courseItem.getCourseType());
+        holder.progressTextView.setText(Integer.toString(courseItem.getCourseProgress()) + "%");
+        holder.progressBar.setProgress(courseItem.getCourseProgress());
+    }
+
+    @Override
+    public int getItemCount() {
+        return courseItems.size();
+    }
+
+    public static class CourseViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTextView;
+        TextView categoryTextView;
+        TextView progressTextView;
+        ProgressBar progressBar;
+
+        public CourseViewHolder(@NonNull View itemView) {
+            super(itemView);
+            nameTextView = itemView.findViewById(R.id.course_title);
+            categoryTextView = itemView.findViewById(R.id.course_category);
+            progressTextView = itemView.findViewById(R.id.course_progress);
+            progressBar = itemView.findViewById(R.id.progressBar);
         }
     }
 }
