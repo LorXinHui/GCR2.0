@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#EFEFEF"
+    app:cardCornerRadius="12dp"
+    app:contentPadding="10dp"
+    app:layoutDescription="@xml/communities_scene">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/communityHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="FinTalk Hub"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/communityDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/communityHeader"
+            android:text="Join FinTalk Hub to participate in the discussions!" />
+
+        <Button
+            android:id="@+id/btnJoinCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/communityHeader"
+            android:layout_gravity="right"
+            android:text="Join"
+            android:textAlignment="gravity" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
