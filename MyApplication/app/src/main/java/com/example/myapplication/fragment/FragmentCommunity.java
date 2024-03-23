@@ -142,6 +142,7 @@ public class FragmentCommunity extends Fragment{
 
 
     private void dataInitialize(){
+        communities = new ArrayList<>();
         Community c1 = new Community("FinanceTalk Hub",
                 "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry");
 
