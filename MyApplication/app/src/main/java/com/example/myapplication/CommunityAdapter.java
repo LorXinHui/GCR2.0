@@ -4,11 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.fragment.FragmentNews;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +22,10 @@ import java.util.List;
 public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.ViewHolder> {
 
     List<Community> communities = new ArrayList<>();
+    FragmentManager fragmentManager;
 
-    public CommunityAdapter(){
+    public CommunityAdapter(FragmentManager fragmentManager){
+        this.fragmentManager = fragmentManager;
     }
 
     public void setData(List<Community> data){
@@ -37,6 +45,22 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         String communityDesc = communities.get(position).getCommunityDesc();
         holder.communityHead.setText(communityName);
         holder.communityDesc.setText(communityDesc);
+
+        FragmentNews fragmentNews = new FragmentNews();
+
+        holder.joinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == holder.joinButton && fragmentManager != null){
+                    Toast.makeText(v.getContext().getApplicationContext(), "Joined Community", Toast.LENGTH_SHORT).show();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.flFragment, fragmentNews);
+                    transaction.commit();
+                }
+            }
+        });
+
+
     }
 
     @Override
@@ -49,13 +73,14 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         public View itemView;
         public TextView communityHead;
         public TextView communityDesc;
+        public Button joinButton;
 
         public ViewHolder(View itemView){
             super(itemView);
             this.itemView = itemView;
             communityHead = itemView.findViewById(R.id.communityHeader);
             communityDesc = itemView.findViewById(R.id.communityDesc);
-
+            joinButton = itemView.findViewById(R.id.btnJoinCommunity);
 
         }
 
