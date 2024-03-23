@@ -3,10 +3,13 @@ package com.example.myapplication.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.myapplication.R;
 
@@ -60,7 +63,38 @@ public class FragmentProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        // Find the button in your layout
+        ImageView settingsImageView = view.findViewById(R.id.settingsImageView);
+
+        // Set an onClickListener for the button
+        settingsImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create a new instance of the fragment you want to navigate to
+                FragmentSettings fragmentSettings = new FragmentSettings();
+
+                // Get the FragmentManager
+                FragmentManager fragmentManager = getParentFragmentManager();
+
+                // Begin a transaction
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                // Replace the current fragment with the new fragment
+                fragmentTransaction.replace(R.id.flFragment, fragmentSettings);
+
+                // Optional: Add the transaction to the back stack
+                fragmentTransaction.addToBackStack(null);
+
+                // Commit the transaction
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
+
     }
+
 }
