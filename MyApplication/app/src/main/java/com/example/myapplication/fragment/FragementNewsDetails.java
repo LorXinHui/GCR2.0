@@ -8,28 +8,28 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.myapplication.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentHome#newInstance} factory method to
+ * Use the {@link FragementNewsDetails#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentHome extends Fragment implements View.OnClickListener{
+public class FragementNewsDetails extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private FloatingActionButton messageFab;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageView back;
 
-    public FragmentHome() {
+    public FragementNewsDetails() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentHome.
+     * @return A new instance of fragment FragementNewsDetails.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentHome newInstance(String param1, String param2) {
-        FragmentHome fragment = new FragmentHome();
+    public static FragementNewsDetails newInstance(String param1, String param2) {
+        FragementNewsDetails fragment = new FragementNewsDetails();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,20 +64,21 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootview = inflater.inflate(R.layout.fragement_news_details, container, false);
 
-        messageFab = rootView.findViewById(R.id.message_fab);
-        messageFab.setOnClickListener(this);
+        back = rootview.findViewById(R.id.back_button);
+        back.setOnClickListener(this);
 
-        return rootView;
+        return rootview;
     }
 
-    FragmentMesssage fragmentMesssage = new FragmentMesssage();
+    FragmentNews fragmentNews = new FragmentNews();
+
     @Override
     public void onClick(View v) {
-        if (v == messageFab){
+        if (v == back){
             FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.flFragment, fragmentMesssage);
+            transaction.replace(R.id.flFragment, fragmentNews);
             transaction.commit();
         }
     }

@@ -1,9 +1,12 @@
 package com.example.myapplication.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -98,7 +101,7 @@ public class FragmentNews extends Fragment {
                 "Discussions",
                 "In today's digital age, there's no shortage of personal finance apps and tools designed to help you manage your money more effectively. From budgeting apps and expense trackers to investment platforms and credit score monitors, the options are endless. What are your favorite personal finance apps and tools.... "
         ));
-        NewsAdapter newsAdapter = new NewsAdapter(newsItemList);
+        NewsAdapter newsAdapter = new NewsAdapter(getActivity().getSupportFragmentManager(), newsItemList);
         newsView.setAdapter(newsAdapter);
 
         return rootView;
@@ -107,8 +110,10 @@ public class FragmentNews extends Fragment {
 
 class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     private List<NewsItem> newsItems;
+    private FragmentManager fragmentManager;
 
-    public NewsAdapter(List<NewsItem> newsItems) {
+    public NewsAdapter(FragmentManager fragmentManager, List<NewsItem> newsItems) {
+        this.fragmentManager = fragmentManager;
         this.newsItems = newsItems;
     }
 
@@ -125,6 +130,19 @@ class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
         holder.newsTitle.setText(newsItem.getTitle());
         holder.newsCategory.setText(newsItem.getCategory());
         holder.newsContent.setText(newsItem.getContent());
+
+        FragementNewsDetails fragementNewsDetails = new FragementNewsDetails();
+
+        holder.seeMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == holder.seeMore && fragmentManager != null){
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.flFragment, fragementNewsDetails);
+                    transaction.commit();
+                }
+            }
+        });
     }
 
     @Override
@@ -138,12 +156,14 @@ class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
         TextView newsTitle;
         TextView newsCategory;
         TextView newsContent;
+        TextView seeMore;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             newsTitle = itemView.findViewById(R.id.news_title);
             newsCategory = itemView.findViewById(R.id.news_category);
             newsContent = itemView.findViewById(R.id.news_content);
+            seeMore = itemView.findViewById(R.id.see_more);
         }
     }
 }
