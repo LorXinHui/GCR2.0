@@ -2,11 +2,15 @@ package com.example.myapplication.fragment;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.myapplication.R;
 
@@ -61,6 +65,59 @@ public class FragmentProfessional extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_professional, container, false);
+        View view = inflater.inflate(R.layout.fragment_professional, container, false);
+
+        // Find the button in your layout
+        Button details1 = view.findViewById(R.id.moreDet1);
+        Button details2 = view.findViewById(R.id.moreDet2);
+
+        // Set an onClickListener for the button
+        details1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create a new instance of the fragment you want to navigate to
+                FragmentCourseDetails fragmentCourseDetails = new FragmentCourseDetails();
+
+                // Get the FragmentManager
+                FragmentManager fragmentManager = getParentFragmentManager();
+
+                // Begin a transaction
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                // Replace the current fragment with the new fragment
+                fragmentTransaction.replace(R.id.flFragment, fragmentCourseDetails);
+
+                // Optional: Add the transaction to the back stack
+                fragmentTransaction.addToBackStack(null);
+
+                // Commit the transaction
+                fragmentTransaction.commit();
+            }
+        });
+
+        // Set an onClickListener for the button
+        details2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create a new instance of the fragment you want to navigate to
+                FragmentCourseDetails fragmentCourseDetails = new FragmentCourseDetails();
+
+                // Get the FragmentManager
+                FragmentManager fragmentManager = getParentFragmentManager();
+
+                // Begin a transaction
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                // Replace the current fragment with the new fragment
+                fragmentTransaction.replace(R.id.flFragment, fragmentCourseDetails);
+
+                // Optional: Add the transaction to the back stack
+                fragmentTransaction.addToBackStack(null);
+
+                // Commit the transaction
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
     }
 }

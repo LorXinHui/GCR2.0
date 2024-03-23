@@ -16,7 +16,7 @@
         app:layout_constraintGuide_begin="40dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/casualImageView"
         android:layout_width="wrap_content"
         android:layout_height="625dp"
         android:src="@drawable/screenshot_2024_03_23_005519" />
