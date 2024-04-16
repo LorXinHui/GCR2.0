@@ -5,11 +5,13 @@ import com.example.myapplication.items.InvitationItem;
 public class MessageItem {
 
     public InvitationItem mentor;
-    public String message;
+    public String email;
+    public String contact;
 
-    public MessageItem(InvitationItem mentor, String message){
+    public MessageItem(InvitationItem mentor, String email, String contact) {
         this.mentor = mentor;
-        this.message = message;
+        this.email = email;
+        this.contact = contact;
     }
 
     public InvitationItem getMentor() {
@@ -20,11 +22,19 @@ public class MessageItem {
         this.mentor = mentor;
     }
 
-    public String getMessage() {
-        return message;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 }

@@ -82,9 +82,9 @@ public class FragmentMesssage extends Fragment {
         // Create and set adapter
         List<MessageItem> messageList = new ArrayList<>();
         // Add some invitation items to the list
-        messageList.add(new MessageItem(new InvitationItem("Elena Rodriguez", "UX Designer"), "Thank you for guiding me through and sharing your insights." ));
-        messageList.add(new MessageItem(new InvitationItem("Oliver Bennett", "Chief Technology Officer (CTO)"), "Accepted your mentorship request"));
-        messageList.add(new MessageItem(new InvitationItem("Lucas Morales", "Operations Manager"), "Accepted your mentorship request"));
+        messageList.add(new MessageItem(new InvitationItem("Elena Rodriguez", "UX Designer"), "elana.rodriquez@univiz.com", "+1 (916) 693-5829" ));
+        messageList.add(new MessageItem(new InvitationItem("Oliver Bennett", "Chief Technology Officer (CTO)"), "oliver.bennett@techxperts.com", "+65 3952 2507"));
+        messageList.add(new MessageItem(new InvitationItem("Lucas Morales", "Operations Manager"), "lucas.morales@iconet.com", "+60 12 6750 7326"));
         MessageAdapter messageAdapter = new MessageAdapter(messageList);
         messageView.setAdapter(messageAdapter);
 
@@ -111,7 +111,8 @@ class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHold
         MessageItem messageItem = messageItems.get(position);
         holder.nameTextView.setText(messageItem.getMentor().getName());
         holder.jobDescriptionTextView.setText(messageItem.getMentor().getJobDescription());
-        holder.messageTextView.setText(messageItem.getMessage());
+        holder.emailTextView.setText(messageItem.getEmail());
+        holder.contactTextView.setText(messageItem.getContact());
     }
 
     @Override
@@ -124,13 +125,15 @@ class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHold
     public static class MessageViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView jobDescriptionTextView;
-        TextView messageTextView;
+        TextView emailTextView;
+        TextView contactTextView;
 
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.mentor_name);
             jobDescriptionTextView = itemView.findViewById(R.id.mentor_job);
-            messageTextView = itemView.findViewById(R.id.mentor_msg);
+            emailTextView = itemView.findViewById(R.id.mentor_email);
+            contactTextView = itemView.findViewById(R.id.mentor_contact);
         }
     }
 }

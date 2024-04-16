@@ -49,17 +49,7 @@
             android:title="Job Description" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="8sp"
-            android:textStyle="italic"
-            android:title="" />
-
-        <TextView
-            android:id="@+id/mentor_msg"
+            android:id="@+id/mentor_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
@@ -70,7 +60,21 @@
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="12sp"
-            android:title="Message" />
+            android:title="Email" />
+
+        <TextView
+            android:id="@+id/mentor_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:lineSpacingExtra="8sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:title="Contact Details" />
 
     </LinearLayout>
 
