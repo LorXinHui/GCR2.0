@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Competitions/JobSparks/jobspark.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2525"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,16:mainuniversity_major"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="certificate" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="70"/><column index="2" value="84"/><column index="3" value="204"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="company" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="168"/><column index="3" value="137"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="skills" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="80"/><column index="2" value="264"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="skills_achieved" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="70"/><column index="2" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="78"/><column index="2" value="140"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="university" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="64"/><column index="2" value="275"/><column index="3" value="117"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="university_major" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="64"/><column index="2" value="87"/><column index="3" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE IF NOT EXISTS university (
+	uni_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	uni_name TEXT NOT NULL UNIQUE,
+	uni_location TEXT NOT NULL
+);
+
+DELETE FROM university;
+
+INSERT INTO university (uni_name, uni_location)
+VALUES ('Avalon University', 'Ireland');
+
+INSERT INTO university (uni_name, uni_location)
+VALUES ('Zenith Institute of Technology (ZIT)', 'Singapore');
+
+INSERT INTO university (uni_name, uni_location)
+VALUES ('Alphine Polytechnic', 'Switzerland');
+
+CREATE TABLE IF NOT EXISTS university_major (
+	uni_id INTEGER NOT NULL,
+	major_id INTEGER NOT NULL,
+	major_name TEXT NOT NULL,
+	PRIMARY KEY (uni_id, major_id),
+	FOREIGN KEY (uni_id)
+		REFERENCES university (uni_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM university_major;
+
+INSERT INTO university_major (uni_id, major_id, major_name)
+VALUES (
+    (SELECT uni_id FROM university WHERE uni_name = 'Avalon University'),
+    300,
+    'Bachelor of Psychology'
+);
+	
+INSERT INTO university_major (uni_id, major_id, major_name)
+VALUES (
+	(SELECT uni_id
+	FROM university 
+	WHERE uni_name = 'Avalon University'),
+	301,
+	'Bachlor of Business Administration');
+
+INSERT INTO university_major (uni_id, major_id, major_name)
+VALUES (
+	(SELECT uni_id
+	FROM university 
+	WHERE uni_name = 'Zenith Institute of Technology (ZIT)'),
+	302, 
+	'Bachlor of Computer Science');
+
+INSERT INTO university_major (uni_id, major_id, major_name)
+VALUES (
+	(SELECT uni_id
+	FROM university 
+	WHERE uni_name = 'Alphine Polytechnic'),
+	303, 
+	'Bachlor of Engineering in Civil Engineering');
+
+CREATE TABLE IF NOT EXISTS skills (
+	skills_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	skills_name TEXT NOT NULL UNIQUE
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 999 WHERE name = 'skills';
+
+DELETE FROM skills;
+
+INSERT INTO skills (skills_name) VALUES ('active listening');
+INSERT INTO skills (skills_name) VALUES ('effective communication');
+INSERT INTO skills (skills_name) VALUES ('computer proficiency');
+INSERT INTO skills (skills_name) VALUES ('risk management');
+INSERT INTO skills (skills_name) VALUES ('problem solving');
+INSERT INTO skills (skills_name) VALUES ('cloud architecture and design');
+INSERT INTO skills (skills_name) VALUES ('cloud security operations');
+INSERT INTO skills (skills_name) VALUES ('cloud data and application security');
+INSERT INTO skills (skills_name) VALUES ('financial planning');
+INSERT INTO skills (skills_name) VALUES ('forecasting');
+
+CREATE TABLE IF NOT EXISTS company (
+	comp_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	comp_name TEXT NOT NULL UNIQUE,
+	comp_location TEXT NOT NULL
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 9999 WHERE name = 'company';
+
+DELETE FROM company;
+
+INSERT INTO company (comp_name, comp_location)
+VALUES ('TechVista Solution', 'United States');
+
+INSERT INTO company (comp_name, comp_location)
+VALUES ('Quantum Byte Labs', 'Denmark');
+
+INSERT INTO company (comp_name, comp_location)
+VALUES ('CyberNex Innovations', 'Isreal');
+
+CREATE TABLE IF NOT EXISTS certificate (
+	cert_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	comp_id INTEGER NOT NULL,
+	cert_name TEXT NOT NULL,
+	FOREIGN KEY (comp_id)
+		REFERENCES company (comp_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION	
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 19999 WHERE name = 'certificate';
+
+DELETE FROM certificate;
+	
+INSERT INTO certificate (comp_id, cert_name)
+VALUES (
+	(SELECT comp_id
+	FROM company
+	WHERE comp_name = 'TechVista Solution'),
+	'TechVista Cloud Surfing');
+	
+INSERT INTO certificate (comp_id, cert_name)
+VALUES (
+	(SELECT comp_id
+	FROM company
+	WHERE comp_name = 'Quantum Byte Labs'),
+	'Certified Quantum Finance');
+
+CREATE TABLE IF NOT EXISTS skills_achieved (
+	cert_id INTEGER NOT NULL,
+	skills_id INTEGER NOT NULL,
+	PRIMARY KEY (cert_id, skills_id),
+	FOREIGN KEY (cert_id)
+		REFERENCES certificate (cert_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (skills_id)
+		REFERENCES skills (skills_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION		
+);
+
+DELETE FROM skills_achieved;
+
+INSERT INTO skills_achieved (cert_id, skills_id)
+VALUES (
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'TechVista Cloud Surfing'),
+	(SELECT skills_id
+	FROM skills
+	WHERE skills_name = 'cloud architecture and design'));
+
+INSERT INTO skills_achieved (cert_id, skills_id)
+VALUES (
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'TechVista Cloud Surfing'),
+	(SELECT skills_id
+	FROM skills
+	WHERE skills_name = 'cloud security operations'));
+
+INSERT INTO skills_achieved (cert_id, skills_id)
+VALUES (
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'TechVista Cloud Surfing'),
+	(SELECT skills_id
+	FROM skills
+	WHERE skills_name = 'cloud data and application security'));
+	
+INSERT INTO skills_achieved (cert_id, skills_id)
+VALUES (
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'Certified Quantum Finance'),
+	(SELECT skills_id
+	FROM skills
+	WHERE skills_name = 'forecasting'));
+	
+INSERT INTO skills_achieved (cert_id, skills_id)
+VALUES (
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'Certified Quantum Finance'),
+	(SELECT skills_id
+	FROM skills
+	WHERE skills_name = 'risk management'));
+
+	</sql><current_tab id="0"/></tab_sql></sqlb_project>
