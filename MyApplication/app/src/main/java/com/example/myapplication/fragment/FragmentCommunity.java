@@ -15,6 +15,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.adapter.CommunityAdapter;
 import com.example.myapplication.R;
@@ -90,6 +91,7 @@ public class FragmentCommunity extends Fragment{
         return rootView;
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -99,7 +101,7 @@ public class FragmentCommunity extends Fragment{
         recyclerView = view.findViewById(R.id.communityRV);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        communityAdapter = new CommunityAdapter(getActivity().getSupportFragmentManager());
+        communityAdapter = new CommunityAdapter(view.getContext(), getActivity().getSupportFragmentManager());
         communityAdapter.setData(communities);
         recyclerView.setAdapter(communityAdapter);
         communityAdapter.notifyDataSetChanged();

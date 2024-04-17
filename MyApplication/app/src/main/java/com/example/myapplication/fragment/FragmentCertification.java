@@ -1,18 +1,18 @@
 package com.example.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.myapplication.R;
+import com.example.myapplication.activity.FragmentCasual;
+import com.example.myapplication.activity.FragmentProfessional;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,46 +75,16 @@ public class FragmentCertification extends Fragment {
         cardViewCasual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new instance of the fragment you want to navigate to
-                FragmentCasual fragmentCasual = new FragmentCasual();
-
-                // Get the FragmentManager
-                FragmentManager fragmentManager = getParentFragmentManager();
-
-                // Begin a transaction
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                // Replace the current fragment with the new fragment
-                fragmentTransaction.replace(R.id.flFragment, fragmentCasual);
-
-                // Optional: Add the transaction to the back stack
-                fragmentTransaction.addToBackStack(null);
-
-                // Commit the transaction
-                fragmentTransaction.commit();
+                Intent intent = new Intent(view.getContext(), FragmentCasual.class);
+                startActivity(intent);
             }
         });
 
         cardViewProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new instance of the fragment you want to navigate to
-                FragmentProfessional fragmentProfessional = new FragmentProfessional();
-
-                // Get the FragmentManager
-                FragmentManager fragmentManager = getParentFragmentManager();
-
-                // Begin a transaction
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                // Replace the current fragment with the new fragment
-                fragmentTransaction.replace(R.id.flFragment, fragmentProfessional);
-
-                // Optional: Add the transaction to the back stack
-                fragmentTransaction.addToBackStack(null);
-
-                // Commit the transaction
-                fragmentTransaction.commit();
+                Intent intent = new Intent(view.getContext(), FragmentProfessional.class);
+                startActivity(intent);
             }
         });
 

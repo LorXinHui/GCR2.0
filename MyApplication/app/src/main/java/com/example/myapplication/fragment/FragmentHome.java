@@ -98,7 +98,7 @@ public class FragmentHome extends Fragment{
                 "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry"));
         communityList.add(new CommunityItem("Fintech Frontiers Forum",
                 "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance."));
-        CommunityAdapter communityAdapter = new CommunityAdapter(getActivity().getSupportFragmentManager());
+        CommunityAdapter communityAdapter = new CommunityAdapter(rootView.getContext(), getActivity().getSupportFragmentManager());
         communityAdapter.setData(communityList);
         communityView.setAdapter(communityAdapter);
 
@@ -110,12 +110,14 @@ public class FragmentHome extends Fragment{
         courseList.add(new CourseItem(
                 "Entrepreneurship and Innovation",
                 "Professional",
-                30
+                30,
+                "Explore the process of entrepreneurship and innovation, including idea generation, business model development, and market validation."
         ));
         courseList.add(new CourseItem(
                 "Investment Management",
                 "Casual",
-                80
+                80,
+                "Explore various investment strategies, portfolio management techniques, and risk assessment methods."
         ));
         CourseAdapter courseAdapter = new CourseAdapter(courseList);
         courseView.setAdapter(courseAdapter);

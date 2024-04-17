@@ -4,11 +4,13 @@ public class CourseItem {
     private String courseName;
     private String courseType;
     private int courseProgress;
+    private String courseDesc;
 
-    public CourseItem(String courseName, String courseType, int courseProgress) {
+    public CourseItem(String courseName, String courseType, int courseProgress, String courseDesc) {
         this.courseName = courseName;
         this.courseType = courseType;
         this.courseProgress = courseProgress;
+        this.courseDesc = courseDesc;
     }
 
     public String getCourseName() {
@@ -33,5 +35,13 @@ public class CourseItem {
 
     public void setCourseProgress(int courseProgress) {
         this.courseProgress = courseProgress;
+    }
+
+    public String getCourseDesc() {
+        return courseDesc;
+    }
+
+    public void setCourseDesc(String courseDesc) {
+        this.courseDesc = courseDesc;
     }
 }

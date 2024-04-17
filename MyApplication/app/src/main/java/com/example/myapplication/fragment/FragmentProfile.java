@@ -1,5 +1,6 @@
 package com.example.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.activity.FragmentSettings;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,23 +76,8 @@ public class FragmentProfile extends Fragment {
         settingsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new instance of the fragment you want to navigate to
-                FragmentSettings fragmentSettings = new FragmentSettings();
-
-                // Get the FragmentManager
-                FragmentManager fragmentManager = getParentFragmentManager();
-
-                // Begin a transaction
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                // Replace the current fragment with the new fragment
-                fragmentTransaction.replace(R.id.flFragment, fragmentSettings);
-
-                // Optional: Add the transaction to the back stack
-                fragmentTransaction.addToBackStack(null);
-
-                // Commit the transaction
-                fragmentTransaction.commit();
+                Intent intent = new Intent(view.getContext(), FragmentSettings.class);
+                startActivity(intent);
             }
         });
         return view;

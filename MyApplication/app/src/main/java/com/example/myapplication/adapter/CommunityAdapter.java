@@ -1,5 +1,9 @@
 package com.example.myapplication.adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +16,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.R;
-import com.example.myapplication.fragment.FragmentNews;
+import com.example.myapplication.activity.FragmentNews;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +28,10 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
     List<CommunityItem> communities = new ArrayList<>();
     FragmentManager fragmentManager;
+    Context context;
 
-    public CommunityAdapter(FragmentManager fragmentManager){
+    public CommunityAdapter(Context context, FragmentManager fragmentManager){
+        this.context = context;
         this.fragmentManager = fragmentManager;
     }
 
@@ -53,9 +60,11 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
             public void onClick(View v) {
                 if(v == holder.joinButton && fragmentManager != null){
                     Toast.makeText(v.getContext().getApplicationContext(), "Joined Community", Toast.LENGTH_SHORT).show();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.flFragment, fragmentNews);
-                    transaction.commit();
+                    //FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    //transaction.replace(R.id.flFragment, fragmentNews);
+                    //transaction.commit();
+                    Intent intent = new Intent(context, FragmentNews.class);
+                    context.startActivity(intent);
                 }
             }
         });

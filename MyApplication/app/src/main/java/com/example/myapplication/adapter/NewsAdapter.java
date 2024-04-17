@@ -1,5 +1,7 @@
 package com.example.myapplication.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,11 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.fragment.FragementNewsDetails;
+import com.example.myapplication.activity.FragmentNewsDetails;
 import com.example.myapplication.items.NewsItem;
 
 import java.util.List;
@@ -19,8 +20,10 @@ import java.util.List;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     private List<NewsItem> newsItems;
     private FragmentManager fragmentManager;
+    Context context;
 
-    public NewsAdapter(FragmentManager fragmentManager, List<NewsItem> newsItems) {
+    public NewsAdapter(Context context, FragmentManager fragmentManager, List<NewsItem> newsItems) {
+        this.context = context;
         this.fragmentManager = fragmentManager;
         this.newsItems = newsItems;
     }
@@ -39,15 +42,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.newsCategory.setText(newsItem.getCategory());
         holder.newsContent.setText(newsItem.getContent());
 
-        FragementNewsDetails fragementNewsDetails = new FragementNewsDetails();
+        FragmentNewsDetails fragementNewsDetails = new FragmentNewsDetails();
 
         holder.seeMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(v == holder.seeMore && fragmentManager != null){
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.flFragment, fragementNewsDetails);
-                    transaction.commit();
+                    //FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    //transaction.replace(R.id.flFragment, fragementNewsDetails);
+                    //transaction.commit();
+                    Intent intent = new Intent(context, FragmentNewsDetails.class);
+                    context.startActivity(intent);
                 }
             }
         });
