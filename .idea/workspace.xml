@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb01a876-30b5-4a9e-b93c-608222ef0c5c" name="Changes" comment="Created bottom navigation bar">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/User/StudioProjects/GCR2.0-main2/MyApplication"
+    "last_opened_file_path": "C:/Users/User/StudioProjects/GCR2/MyApplication"
   }
 }]]></component>
   <component name="RunManager">
