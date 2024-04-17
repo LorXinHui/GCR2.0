@@ -1,8 +1,10 @@
-package com.example.myapplication.fragment;
+package com.example.myapplication.activity;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.myapplication.adapter.MessageAdapter;
 import com.example.myapplication.items.InvitationItem;
 import com.example.myapplication.items.MessageItem;
 import com.example.myapplication.R;
@@ -24,8 +27,9 @@ import java.util.List;
  * Use the {@link FragmentMesssage#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentMesssage extends Fragment {
+public class FragmentMesssage extends AppCompatActivity {
 
+    /**
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -46,7 +50,7 @@ public class FragmentMesssage extends Fragment {
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
      * @return A new instance of fragment FragmentMesssage.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static FragmentMesssage newInstance(String param1, String param2) {
         FragmentMesssage fragment = new FragmentMesssage();
@@ -90,50 +94,28 @@ public class FragmentMesssage extends Fragment {
 
         return view;
     }
+    */
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_messsage);
+
+        // Find RecyclerView in the inflated layout
+        RecyclerView messageView = findViewById(R.id.message);
+
+        // Create and set layout manager (e.g., LinearLayoutManager)
+        LinearLayoutManager messageLayout = new LinearLayoutManager(this);
+        messageView.setLayoutManager(messageLayout);
+
+        // Create and set adapter
+        List<MessageItem> messageList = new ArrayList<>();
+        // Add some invitation items to the list
+        messageList.add(new MessageItem(new InvitationItem("Elena Rodriguez", "UX Designer"), "elana.rodriquez@univiz.com", "+1 (916) 693-5829" ));
+        messageList.add(new MessageItem(new InvitationItem("Oliver Bennett", "Chief Technology Officer (CTO)"), "oliver.bennett@techxperts.com", "+65 3952 2507"));
+        messageList.add(new MessageItem(new InvitationItem("Lucas Morales", "Operations Manager"), "lucas.morales@iconet.com", "+60 12 6750 7326"));
+        MessageAdapter messageAdapter = new MessageAdapter(messageList);
+        messageView.setAdapter(messageAdapter);
+    }
 }
 
-class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
-    private List<MessageItem> messageItems;
-
-    public MessageAdapter(List<MessageItem> messageItems) {
-        this.messageItems = messageItems;
-    }
-
-    @NonNull
-    @Override
-    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.messsage_item, parent, false);
-        return new MessageViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        MessageItem messageItem = messageItems.get(position);
-        holder.nameTextView.setText(messageItem.getMentor().getName());
-        holder.jobDescriptionTextView.setText(messageItem.getMentor().getJobDescription());
-        holder.emailTextView.setText(messageItem.getEmail());
-        holder.contactTextView.setText(messageItem.getContact());
-    }
-
-    @Override
-    public int getItemCount() {
-        return messageItems.size();
-    }
-
-
-
-    public static class MessageViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
-        TextView jobDescriptionTextView;
-        TextView emailTextView;
-        TextView contactTextView;
-
-        public MessageViewHolder(@NonNull View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.mentor_name);
-            jobDescriptionTextView = itemView.findViewById(R.id.mentor_job);
-            emailTextView = itemView.findViewById(R.id.mentor_email);
-            contactTextView = itemView.findViewById(R.id.mentor_contact);
-        }
-    }
-}

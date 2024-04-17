@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,8 +15,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.Community;
-import com.example.myapplication.CommunityAdapter;
+import com.example.myapplication.items.CommunityItem;
+import com.example.myapplication.adapter.CommunityAdapter;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class FragmentCommunity extends Fragment{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
-    private List<Community> communities = new ArrayList<>();
+    private List<CommunityItem> communities = new ArrayList<>();
 
     private CommunityAdapter communityAdapter;
 
@@ -125,8 +124,8 @@ public class FragmentCommunity extends Fragment{
     }
 
     private void filterList(String text){
-        List<Community> filteredCommunity = new ArrayList<>();
-        for (Community c: communities){
+        List<CommunityItem> filteredCommunity = new ArrayList<>();
+        for (CommunityItem c: communities){
             if (c.getCommunityName().toLowerCase().contains(text.toLowerCase())){
                 filteredCommunity.add(c);
             }
@@ -143,10 +142,10 @@ public class FragmentCommunity extends Fragment{
 
     private void dataInitialize(){
         communities = new ArrayList<>();
-        Community c1 = new Community("FinanceTalk Hub",
+        CommunityItem c1 = new CommunityItem("FinanceTalk Hub",
                 "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry");
 
-        Community c2 = new Community("Fintech Frontiers Forum",
+        CommunityItem c2 = new CommunityItem("Fintech Frontiers Forum",
                 "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance.");
 
         communities.add(c1);

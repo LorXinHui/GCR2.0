@@ -1,10 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.items;
 
-public class Community {
+public class CommunityItem {
     private String communityName;
     private String communityDesc;
 
-    public Community(String communityName, String communityDesc){
+    public CommunityItem(String communityName, String communityDesc){
         this.communityName = communityName;
         this.communityDesc = communityDesc;
     }

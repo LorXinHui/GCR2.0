@@ -1,27 +1,22 @@
 package com.example.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.myapplication.Community;
-import com.example.myapplication.CommunityAdapter;
+import com.example.myapplication.items.CommunityItem;
+import com.example.myapplication.adapter.CommunityAdapter;
 import com.example.myapplication.R;
+import com.example.myapplication.activity.FragmentMesssage;
+import com.example.myapplication.adapter.CourseAdapter;
 import com.example.myapplication.items.CourseItem;
-import com.example.myapplication.items.MessageItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -32,7 +27,7 @@ import java.util.List;
  * Use the {@link FragmentHome#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentHome extends Fragment implements View.OnClickListener{
+public class FragmentHome extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +36,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
     private FloatingActionButton messageFab;
 
     private RecyclerView recyclerView;
-    private List<Community> communities = new ArrayList<>();
+    private List<CommunityItem> communities = new ArrayList<>();
     private CommunityAdapter communityAdapter;
 
     // TODO: Rename and change types of parameters
@@ -86,16 +81,22 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         messageFab = rootView.findViewById(R.id.message_fab);
-        messageFab.setOnClickListener(this);
+        messageFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(rootView.getContext(), FragmentMesssage.class);
+                startActivity(intent);
+            }
+        });
 
         RecyclerView communityView = rootView.findViewById(R.id.community_list);
         LinearLayoutManager communityLayout = new LinearLayoutManager(getActivity());
         communityView.setLayoutManager(communityLayout);
 
-        List<Community> communityList = new ArrayList<>();
-        communityList.add(new Community("FinanceTalk Hub",
+        List<CommunityItem> communityList = new ArrayList<>();
+        communityList.add(new CommunityItem("FinanceTalk Hub",
                 "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry"));
-        communityList.add(new Community("Fintech Frontiers Forum",
+        communityList.add(new CommunityItem("Fintech Frontiers Forum",
                 "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance."));
         CommunityAdapter communityAdapter = new CommunityAdapter(getActivity().getSupportFragmentManager());
         communityAdapter.setData(communityList);
@@ -121,58 +122,5 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
 
         return rootView;
     }
-
-    FragmentMesssage fragmentMesssage = new FragmentMesssage();
-    @Override
-    public void onClick(View v) {
-        if (v == messageFab){
-            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.flFragment, fragmentMesssage);
-            transaction.commit();
-        }
-    }
 }
 
-class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
-    private List<CourseItem> courseItems;
-
-    public CourseAdapter(List<CourseItem> courseItems) {
-        this.courseItems = courseItems;
-    }
-
-    @NonNull
-    @Override
-    public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_item, parent, false);
-        return new CourseViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
-        CourseItem courseItem = courseItems.get(position);
-        holder.nameTextView.setText(courseItem.getCourseName());
-        holder.categoryTextView.setText(courseItem.getCourseType());
-        holder.progressTextView.setText(Integer.toString(courseItem.getCourseProgress()) + "%");
-        holder.progressBar.setProgress(courseItem.getCourseProgress());
-    }
-
-    @Override
-    public int getItemCount() {
-        return courseItems.size();
-    }
-
-    public static class CourseViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
-        TextView categoryTextView;
-        TextView progressTextView;
-        ProgressBar progressBar;
-
-        public CourseViewHolder(@NonNull View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.course_title);
-            categoryTextView = itemView.findViewById(R.id.course_category);
-            progressTextView = itemView.findViewById(R.id.course_progress);
-            progressBar = itemView.findViewById(R.id.progressBar);
-        }
-    }
-}

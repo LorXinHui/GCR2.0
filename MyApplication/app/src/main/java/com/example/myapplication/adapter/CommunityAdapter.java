@@ -1,11 +1,9 @@
-package com.example.myapplication;
+package com.example.myapplication.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +12,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.items.CommunityItem;
+import com.example.myapplication.R;
 import com.example.myapplication.fragment.FragmentNews;
 
 import java.util.ArrayList;
@@ -21,14 +21,14 @@ import java.util.List;
 
 public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.ViewHolder> {
 
-    List<Community> communities = new ArrayList<>();
+    List<CommunityItem> communities = new ArrayList<>();
     FragmentManager fragmentManager;
 
     public CommunityAdapter(FragmentManager fragmentManager){
         this.fragmentManager = fragmentManager;
     }
 
-    public void setData(List<Community> data){
+    public void setData(List<CommunityItem> data){
         this.communities = data;
     }
     @NonNull
@@ -87,7 +87,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
     }
 
-    public void setFilteredCommunities(List<Community> communities) {
+    public void setFilteredCommunities(List<CommunityItem> communities) {
         this.communities = communities;
         notifyDataSetChanged();
     }

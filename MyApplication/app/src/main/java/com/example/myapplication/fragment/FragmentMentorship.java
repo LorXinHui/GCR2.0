@@ -1,10 +1,10 @@
 package com.example.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myapplication.activity.FragmentMesssage;
+import com.example.myapplication.adapter.InvitationAdapter;
+import com.example.myapplication.adapter.MentorshipAdapter;
 import com.example.myapplication.items.InvitationItem;
 import com.example.myapplication.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +29,7 @@ import java.util.List;
  * Use the {@link FragmentMentorship#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentMentorship extends Fragment implements View.OnClickListener {
+public class FragmentMentorship extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -106,137 +109,27 @@ public class FragmentMentorship extends Fragment implements View.OnClickListener
         mentorshipView.setAdapter(mentorshipAdapter);
 
         messageFab = rootView.findViewById(R.id.message_fab);
-        messageFab.setOnClickListener(this);
+        messageFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(rootView.getContext(), FragmentMesssage.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
 
-    FragmentMesssage fragmentMesssage = new FragmentMesssage();
+    /*
     @Override
     public void onClick(View v) {
         if (v == messageFab){
-            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.flFragment, fragmentMesssage);
-            transaction.commit();
+            //FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            //transaction.replace(R.id.flFragment, fragmentMesssage);
+            //transaction.commit();
+            Intent intent= new Intent(, FragmentMesssage.class);
+            startActivity(intent);
         }
     }
-}
-
-class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.InvitationViewHolder> {
-    private List<InvitationItem> invitationItems;
-
-    public InvitationAdapter(List<InvitationItem> invitationItems) {
-        this.invitationItems = invitationItems;
-    }
-
-    @NonNull
-    @Override
-    public InvitationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.invitation_item, parent, false);
-        return new InvitationViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull InvitationViewHolder holder, int position) {
-        InvitationItem invitationItem = invitationItems.get(position);
-        holder.nameTextView.setText(invitationItem.getName());
-        holder.jobDescriptionTextView.setText(invitationItem.getJobDescription());
-        // Implement button click listeners if needed
-        holder.acceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Update layout when button is clicked
-                holder.acceptButton.setVisibility(View.GONE);
-                holder.rejectButton.setVisibility(View.GONE);
-                holder.actionText.setVisibility(View.VISIBLE);
-                holder.actionText.setText("Accept");
-            }
-        });
-
-        holder.rejectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Update layout when button is clicked
-                holder.acceptButton.setVisibility(View.GONE);
-                holder.rejectButton.setVisibility(View.GONE);
-                holder.actionText.setVisibility(View.VISIBLE);
-                holder.actionText.setText("Reject");
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return invitationItems.size();
-    }
-
-    public static class InvitationViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
-        TextView jobDescriptionTextView;
-        Button acceptButton;
-        Button rejectButton;
-        TextView actionText;
-
-        public InvitationViewHolder(@NonNull View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.invite_name);
-            jobDescriptionTextView = itemView.findViewById(R.id.invite_job);
-            acceptButton = itemView.findViewById(R.id.acceptButton);
-            rejectButton = itemView.findViewById(R.id.rejectButton);
-            actionText = itemView.findViewById(R.id.actionText);
-        }
-    }
-}
-
-class MentorshipAdapter extends RecyclerView.Adapter<MentorshipAdapter.MentorshipViewHolder> {
-    private List<InvitationItem> mentorshipItems;
-
-    public MentorshipAdapter(List<InvitationItem> invitationItems) {
-        this.mentorshipItems = invitationItems;
-    }
-
-    @NonNull
-    @Override
-    public MentorshipViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.mentorship_item, parent, false);
-        return new MentorshipViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MentorshipViewHolder holder, int position) {
-        InvitationItem invitationItem = mentorshipItems.get(position);
-        holder.nameTextView.setText(invitationItem.getName());
-        holder.jobDescriptionTextView.setText(invitationItem.getJobDescription());
-        // Implement button click listeners if needed
-        holder.mentorshipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Update layout when button is clicked
-                holder.mentorshipButton.setVisibility(View.GONE);
-                holder.requestSentText.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return mentorshipItems.size();
-    }
-
-
-
-    public static class MentorshipViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
-        TextView jobDescriptionTextView;
-        Button mentorshipButton;
-        TextView requestSentText;
-
-        public MentorshipViewHolder(@NonNull View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.mentor_name);
-            jobDescriptionTextView = itemView.findViewById(R.id.mentor_job);
-            mentorshipButton = itemView.findViewById(R.id.mentorButton);
-            requestSentText = itemView.findViewById(R.id.requestSentText);
-        }
-    }
+     */
 }
