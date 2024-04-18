@@ -70,6 +70,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("username", username);
         contentValues.put("password", password);
         long result = myDB.insert("login", null, contentValues);
+
+        myDB.close();
         // if insert successfully
         if (result == -1){
             return false;

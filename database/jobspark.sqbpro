@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Competitions/GCR2.0/database/jobspark.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="3541"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,11:maincertificate"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="certificate" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="70"/><column index="2" value="84"/><column index="3" value="204"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="certificate_record" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="70"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="community" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="89"/><column index="2" value="184"/><column index="3" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="community_comment" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="117"/><column index="2" value="75"/><column index="3" value="74"/><column index="4" value="90"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="community_post" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="89"/><column index="3" value="74"/><column index="4" value="138"/><column index="5" value="300"/><column index="6" value="111"/><column index="7" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="community_record" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="89"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="company" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="168"/><column index="3" value="137"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="course" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="94"/><column index="2" value="70"/><column index="3" value="257"/><column index="4" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="course_record" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="94"/><column index="3" value="153"/><column index="4" value="126"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="experience" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="74"/><column index="3" value="122"/><column index="4" value="89"/><column index="6" value="91"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="invitation" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="85"/><column index="3" value="122"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="mentorship" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="99"/><column index="3" value="136"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="skills" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="80"/><column index="2" value="264"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="skills_achieved" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="70"/><column index="2" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="skills_record" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="78"/><column index="2" value="140"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="university" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="64"/><column index="2" value="275"/><column index="3" value="117"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="university_major" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="64"/><column index="2" value="87"/><column index="3" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="university_record" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="64"/><column index="3" value="87"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="user" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="112"/><column index="3" value="110"/><column index="4" value="111"/><column index="5" value="238"/><column index="6" value="238"/><column index="7" value="129"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE IF NOT EXISTS university (
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Competitions/GCR2.0/MyApplication/app/src/main/assets/jobspark.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="3541"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,4:mainuser"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="certificate" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="70"/><column index="2" value="84"/><column index="3" value="204"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="user" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="112"/><column index="3" value="110"/><column index="4" value="111"/><column index="5" value="238"/><column index="6" value="238"/><column index="7" value="129"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE IF NOT EXISTS university (
 	uni_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	uni_name TEXT NOT NULL UNIQUE,
 	uni_location TEXT NOT NULL
@@ -187,418 +187,418 @@ VALUES (
 	FROM skills
 	WHERE skills_name = 'risk management'));
 
-CREATE TABLE IF NOT EXISTS course (
-	course_id INTEGER PRIMARY KEY AUTOINCREMENT,
-	cert_id INTEGER,
-	course_name TEXT NOT NULL,
-	course_desc TEXT NOT NULL,
-	FOREIGN KEY (cert_id)
-		REFERENCES certificate (cert_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-UPDATE SQLITE_SEQUENCE SET seq = 29999 WHERE name = 'course';
-
-DELETE FROM course;
-
-INSERT INTO course (cert_id, course_name, course_desc)
-VALUES (
-	(SELECT cert_id
-	FROM certificate
-	WHERE cert_name = 'TechVista Cloud Surfing'),
-	'Cloud Surfing Essentials',
-	'Learn to ride the cloud waves confidently! Explore cloud architecture, security, scalability, and data management. Navigate compliance currents and emerge as a cloud-savvy surfer.'
-);
-
-INSERT INTO course (course_name, course_desc)
-VALUES (
-	'Blockchain Fundamentals', 
-	'Dive into the world of blockchain technology! Understand the decentralized ledger, consensus algorithms, and smart contracts. Explore use cases beyond cryptocurrencies, such as supply chain management, identity verification, and digital art ownership. By the end of this course, you’ll be ready to build your own blockchain applications and surf the decentralized waves.'
-);
-
-INSERT INTO course (course_name, course_desc)
-VALUES (
-	'Ethical Hacking and Cybersecurity',
-	'Become a digital detective! In this hands-on course, learn ethical hacking techniques to identify vulnerabilities, secure networks, and protect against cyber threats. Explore penetration testing, social engineering, and cryptography. Whether you’re defending organizations or unraveling mysteries, this course equips you with the skills needed to ride the cybersecurity currents.'
-);
-
-
-CREATE TABLE IF NOT EXISTS community (
-		comm_id INTEGER PRIMARY KEY AUTOINCREMENT,
-		comm_name TEXT NOT NULL, 
-		comm_desc TEXT NOT NULL
-);
-
-UPDATE SQLITE_SEQUENCE SET seq = 39999 WHERE name = 'community';
-
-DELETE FROM community;
-
-INSERT INTO community (comm_name, comm_desc)
-VALUES (
-	'FinanceTalk Hub',
-	'FinanceTalk Hub is a vibrant community forum for professionals, enthusiasts, and learners in the financial industry.'
-);
-
-INSERT INTO community (comm_name, comm_desc)
-VALUES (
-	'Fintech Frontiers Forum', 
-	'Dive into discussion on fintech startups, digital banking, and other discruptive technologies shaping the future of finance.'
-);
-
-CREATE TABLE IF NOT EXISTS user (
-	user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
-	user_fname TEXT NOT NULL, 
-	user_lname TEXT NOT NULL,
-	user_status TEXT,
-	user_position TEXT,
-	user_email TEXT  UNIQUE,
-	user_contact TEXT UNIQUE
-);
-
-UPDATE SQLITE_SEQUENCE SET seq = 999999 WHERE name = 'user';
-
-DELETE FROM user;
-
-INSERT INTO user (user_fname, user_lname, user_status, user_position, user_email, user_contact)
-VALUES (
-	'Isabelle',
-	'Mitchell',
-	'Open to work',
-	'Computer Science Student',
-	'isabelle.mitchell@email.com',
-	'+6012-384 1927'
-);
-
-INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
-VALUES (
-	'Elena',
-	'Rodriguez',
-	'UX Designer',
-	'elena.rodriguez@univiz.com',
-	'+1916 693-5829'
-);
-
-INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
-VALUES (
-	'Oliver',
-	'Bennett',
-	'Chief Technology Officer (CTO)',
-	'oliver.bennett@techxperts.com',
-	'+65 3952 2507'
-);
-
-INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
-VALUES (
-	'Lucas',
-	'Morales',
-	'Operations Manager',
-	'lucas.morales@iconet.com', 
-	'+6012 675 0735'
-);
-
-INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
-VALUES (
-	'Malik',
-	'Patel',
-	'Data Scientist',
-	'malik.patel@datalet.com', 
-	'+6016 253 9485'
-);
-
-CREATE TABLE IF NOT EXISTS experience (
-	comp_id INTEGER NOT NULL,
-	user_id INTEGER NOT NULL,
-	exp_position TEXT NOT NULL,
-	exp_year TEXT NOT NULL, 
-	exp_duration TEXT,
-	exp_desc TEXT,
-	PRIMARY KEY (comp_id, user_id, exp_year),
-	FOREIGN KEY (comp_id)
-		REFERENCES company (comp_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM experience;
-
-CREATE TABLE IF NOT EXISTS certificate_record (
-	user_id INTEGER NOT NULL,
-	cert_id INTEGER NOT NULL,
-	PRIMARY KEY (user_id, cert_id),
-	FOREIGN KEY (cert_id)
-		REFERENCES certificate (cert_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM certificate_record;
-
-INSERT INTO certificate_record (user_id, cert_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT cert_id
-	FROM certificate
-	WHERE cert_name = 'TechVista Cloud Surfing')
-);
-
-CREATE TABLE IF NOT EXISTS skills_record (
-	user_id INTEGER NOT NULL,
-	skills_id INTEGER NOT NULL,
-	PRIMARY KEY (user_id, skills_id),
-	FOREIGN KEY (skills_id)
-		REFERENCES skills (skills_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM skills_record;
-
-CREATE TABLE IF NOT EXISTS course_record (
-	user_id INTEGER NOT NULL,
-	course_id INTEGER NOT NULL,
-	course_progress INTEGER DEFAULT 0 NOT NULL,
-	course_mode TEXT,
-	PRIMARY KEY (user_id, course_id),
-	FOREIGN KEY (course_id)
-		REFERENCES course (course_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM course_record;
-
-INSERT INTO course_record (user_id, course_id, course_progress, course_mode)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT course_id
-	FROM course
-	WHERE course_name = 'Cloud Surfing Essentials'),
-	100,
-	'Professional'
-);
-
-INSERT INTO course_record (user_id, course_id, course_mode)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT course_id
-	FROM course
-	WHERE course_name = 'Blockchain Fundamentals'),
-	'Casual'
-);
-
-CREATE TABLE IF NOT EXISTS university_record (
-	user_id INTEGER NOT NULL,
-	uni_id INTEGER NOT NULL,
-	major_id INTEGER NOT NULL
-);
-
-DELETE FROM university_record;
-
-INSERT INTO university_record (user_id, uni_id, major_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT uni_id
-	FROM university 
-	WHERE uni_name = 'Zenith Institute of Technology (ZIT)'),
-	(SELECT major_id
-	FROM university_major
-	WHERE major_name = 'Bachlor of Computer Science')
-);
-
-CREATE TABLE IF NOT EXISTS community_record (
-	user_id INTEGER NOT NULL,
-	comm_id INTEGER NOT NULL,
-	PRIMARY KEY (user_id, comm_id),
-	FOREIGN KEY (comm_id)
-		REFERENCES community (comm_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM community_record;
-
-INSERT INTO community_record (user_id, comm_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT comm_id
-	FROM community
-	WHERE comm_name = 'FinanceTalk Hub')
-);
-
-CREATE TABLE IF NOT EXISTS community_post (
-	post_id INTEGER PRIMARY KEY AUTOINCREMENT,
-	comm_id INTEGER NOT NULL,
-	user_id INTEGER NOT NULL,
-	comm_date TEXT NOT NULL,
-	comm_title TEXT NOT NULL,
-	comm_type TEXT,
-	comm_content TEXT NOT NULL, 
-	FOREIGN KEY (comm_id)
-		REFERENCES community (comm_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-UPDATE SQLITE_SEQUENCE SET seq = 399999 WHERE name = 'community_post';
-
-DELETE FROM community_post;
-
-INSERT INTO community_post (comm_id, user_id, comm_date, comm_title, comm_type, comm_content)
-VALUES (
-	(SELECT comm_id
-	FROM community
-	WHERE comm_name = 'FinanceTalk Hub'),
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Oliver'
-		AND user_lname = 'Bennett'),
-	'2024-03-15 12:02',
-	'Navigating Market Volatility: Tips for Investors',
-	'Guides &amp; Tips',
-	'In light of recent market fluctuations, it is essential for investors to remain calm and stay focused on their long-term financial goals. Here are some tips for navigating market volatility:\n
-        \n- Stay Informed: Keep yourself updated on market trends and economic indicators, but avoid making impulsive investment decisions based on short-term fluctuations.
-        \n- Diversify Your Portfolio: Spread your investments across different asset classes and sectors to reduce risk and minimize the impact of market downturns.
-        \n- Stick to Your Investment Plan: Stick to your predetermined investment strategy and resist the urge to react emotionally to market movements.
-        \n- Consider Dollar-Cost Averaging: Invest regularly over time to take advantage of market dips and avoid trying to time the market.
-        \n\nRemember, volatility is a normal part of investing, and staying disciplined during turbulent times can lead to long-term financial success.'
-);
-
-CREATE TABLE IF NOT EXISTS community_comment (
-	comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-	post_id INTEGER NOT NULL,
-	user_id INTEGER NOT NULL,
-	comment TEXT NOT NULL,
-	FOREIGN KEY (post_id)
-		REFERENCES community_post (post_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-UPDATE SQLITE_SEQUENCE SET seq = 349999 WHERE name = 'community_post';
-
-DELETE FROM community_comment;
-
-CREATE TABLE IF NOT EXISTS mentorship (
-	user_id INTEGER NOT NULL,
-	mentor_id INTEGER NOT NULL,
-	mentor_status TEXT DEFAULT 'FALSE' NOT NULL,
-	PRIMARY KEY (user_id, mentor_id),
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (mentor_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM mentorship;
-
-INSERT INTO mentorship (user_id, mentor_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Oliver'
-		AND user_lname = 'Bennett')
-);
-
-INSERT INTO mentorship (user_id, mentor_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Lucas'
-		AND user_lname = 'Morales')
-);
-
-CREATE TABLE IF NOT EXISTS invitation (
-	user_id INTEGER NOT NULL,
-	invite_id INTEGER NOT NULL,
-	invite_status TEXT DEFAULT 'FALSE' NOT NULL,
-	FOREIGN KEY (user_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION,
-	FOREIGN KEY (invite_id)
-		REFERENCES user (user_id)
-			ON DELETE CASCADE
-			ON UPDATE NO ACTION
-);
-
-DELETE FROM invitation;
-
-INSERT INTO invitation (user_id, invite_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Elena'
-		AND user_lname = 'Rodriguez')
-);
-
-INSERT INTO invitation (user_id, invite_id)
-VALUES (
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Isabelle'
-		AND user_lname = 'Mitchell'),
-	(SELECT user_id
-	FROM user
-	WHERE user_fname = 'Malik'
-		AND user_lname = 'Patel')
+CREATE TABLE IF NOT EXISTS course (
+	course_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	cert_id INTEGER,
+	course_name TEXT NOT NULL,
+	course_desc TEXT NOT NULL,
+	FOREIGN KEY (cert_id)
+		REFERENCES certificate (cert_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 29999 WHERE name = 'course';
+
+DELETE FROM course;
+
+INSERT INTO course (cert_id, course_name, course_desc)
+VALUES (
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'TechVista Cloud Surfing'),
+	'Cloud Surfing Essentials',
+	'Learn to ride the cloud waves confidently! Explore cloud architecture, security, scalability, and data management. Navigate compliance currents and emerge as a cloud-savvy surfer.'
+);
+
+INSERT INTO course (course_name, course_desc)
+VALUES (
+	'Blockchain Fundamentals', 
+	'Dive into the world of blockchain technology! Understand the decentralized ledger, consensus algorithms, and smart contracts. Explore use cases beyond cryptocurrencies, such as supply chain management, identity verification, and digital art ownership. By the end of this course, you’ll be ready to build your own blockchain applications and surf the decentralized waves.'
+);
+
+INSERT INTO course (course_name, course_desc)
+VALUES (
+	'Ethical Hacking and Cybersecurity',
+	'Become a digital detective! In this hands-on course, learn ethical hacking techniques to identify vulnerabilities, secure networks, and protect against cyber threats. Explore penetration testing, social engineering, and cryptography. Whether you’re defending organizations or unraveling mysteries, this course equips you with the skills needed to ride the cybersecurity currents.'
+);
+
+
+CREATE TABLE IF NOT EXISTS community (
+		comm_id INTEGER PRIMARY KEY AUTOINCREMENT,
+		comm_name TEXT NOT NULL, 
+		comm_desc TEXT NOT NULL
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 39999 WHERE name = 'community';
+
+DELETE FROM community;
+
+INSERT INTO community (comm_name, comm_desc)
+VALUES (
+	'FinanceTalk Hub',
+	'FinanceTalk Hub is a vibrant community forum for professionals, enthusiasts, and learners in the financial industry.'
+);
+
+INSERT INTO community (comm_name, comm_desc)
+VALUES (
+	'Fintech Frontiers Forum', 
+	'Dive into discussion on fintech startups, digital banking, and other discruptive technologies shaping the future of finance.'
+);
+
+CREATE TABLE IF NOT EXISTS user (
+	user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+	user_fname TEXT NOT NULL, 
+	user_lname TEXT NOT NULL,
+	user_status TEXT,
+	user_position TEXT,
+	user_email TEXT  UNIQUE,
+	user_contact TEXT UNIQUE
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 999999 WHERE name = 'user';
+
+DELETE FROM user;
+
+INSERT INTO user (user_fname, user_lname, user_status, user_position, user_email, user_contact)
+VALUES (
+	'Isabelle',
+	'Mitchell',
+	'Open to work',
+	'Computer Science Student',
+	'isabelle.mitchell@email.com',
+	'+6012-384 1927'
+);
+
+INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
+VALUES (
+	'Elena',
+	'Rodriguez',
+	'UX Designer',
+	'elena.rodriguez@univiz.com',
+	'+1916 693-5829'
+);
+
+INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
+VALUES (
+	'Oliver',
+	'Bennett',
+	'Chief Technology Officer (CTO)',
+	'oliver.bennett@techxperts.com',
+	'+65 3952 2507'
+);
+
+INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
+VALUES (
+	'Lucas',
+	'Morales',
+	'Operations Manager',
+	'lucas.morales@iconet.com', 
+	'+6012 675 0735'
+);
+
+INSERT INTO user (user_fname, user_lname, user_position, user_email, user_contact)
+VALUES (
+	'Malik',
+	'Patel',
+	'Data Scientist',
+	'malik.patel@datalet.com', 
+	'+6016 253 9485'
+);
+
+CREATE TABLE IF NOT EXISTS experience (
+	comp_id INTEGER NOT NULL,
+	user_id INTEGER NOT NULL,
+	exp_position TEXT NOT NULL,
+	exp_year TEXT NOT NULL, 
+	exp_duration TEXT,
+	exp_desc TEXT,
+	PRIMARY KEY (comp_id, user_id, exp_year),
+	FOREIGN KEY (comp_id)
+		REFERENCES company (comp_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM experience;
+
+CREATE TABLE IF NOT EXISTS certificate_record (
+	user_id INTEGER NOT NULL,
+	cert_id INTEGER NOT NULL,
+	PRIMARY KEY (user_id, cert_id),
+	FOREIGN KEY (cert_id)
+		REFERENCES certificate (cert_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM certificate_record;
+
+INSERT INTO certificate_record (user_id, cert_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT cert_id
+	FROM certificate
+	WHERE cert_name = 'TechVista Cloud Surfing')
+);
+
+CREATE TABLE IF NOT EXISTS skills_record (
+	user_id INTEGER NOT NULL,
+	skills_id INTEGER NOT NULL,
+	PRIMARY KEY (user_id, skills_id),
+	FOREIGN KEY (skills_id)
+		REFERENCES skills (skills_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM skills_record;
+
+CREATE TABLE IF NOT EXISTS course_record (
+	user_id INTEGER NOT NULL,
+	course_id INTEGER NOT NULL,
+	course_progress INTEGER DEFAULT 0 NOT NULL,
+	course_mode TEXT,
+	PRIMARY KEY (user_id, course_id),
+	FOREIGN KEY (course_id)
+		REFERENCES course (course_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM course_record;
+
+INSERT INTO course_record (user_id, course_id, course_progress, course_mode)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT course_id
+	FROM course
+	WHERE course_name = 'Cloud Surfing Essentials'),
+	100,
+	'Professional'
+);
+
+INSERT INTO course_record (user_id, course_id, course_mode)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT course_id
+	FROM course
+	WHERE course_name = 'Blockchain Fundamentals'),
+	'Casual'
+);
+
+CREATE TABLE IF NOT EXISTS university_record (
+	user_id INTEGER NOT NULL,
+	uni_id INTEGER NOT NULL,
+	major_id INTEGER NOT NULL
+);
+
+DELETE FROM university_record;
+
+INSERT INTO university_record (user_id, uni_id, major_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT uni_id
+	FROM university 
+	WHERE uni_name = 'Zenith Institute of Technology (ZIT)'),
+	(SELECT major_id
+	FROM university_major
+	WHERE major_name = 'Bachlor of Computer Science')
+);
+
+CREATE TABLE IF NOT EXISTS community_record (
+	user_id INTEGER NOT NULL,
+	comm_id INTEGER NOT NULL,
+	PRIMARY KEY (user_id, comm_id),
+	FOREIGN KEY (comm_id)
+		REFERENCES community (comm_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM community_record;
+
+INSERT INTO community_record (user_id, comm_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT comm_id
+	FROM community
+	WHERE comm_name = 'FinanceTalk Hub')
+);
+
+CREATE TABLE IF NOT EXISTS community_post (
+	post_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	comm_id INTEGER NOT NULL,
+	user_id INTEGER NOT NULL,
+	comm_date TEXT NOT NULL,
+	comm_title TEXT NOT NULL,
+	comm_type TEXT,
+	comm_content TEXT NOT NULL, 
+	FOREIGN KEY (comm_id)
+		REFERENCES community (comm_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 399999 WHERE name = 'community_post';
+
+DELETE FROM community_post;
+
+INSERT INTO community_post (comm_id, user_id, comm_date, comm_title, comm_type, comm_content)
+VALUES (
+	(SELECT comm_id
+	FROM community
+	WHERE comm_name = 'FinanceTalk Hub'),
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Oliver'
+		AND user_lname = 'Bennett'),
+	'2024-03-15 12:02',
+	'Navigating Market Volatility: Tips for Investors',
+	'Guides &amp; Tips',
+	'In light of recent market fluctuations, it is essential for investors to remain calm and stay focused on their long-term financial goals. Here are some tips for navigating market volatility:\n
+        \n- Stay Informed: Keep yourself updated on market trends and economic indicators, but avoid making impulsive investment decisions based on short-term fluctuations.
+        \n- Diversify Your Portfolio: Spread your investments across different asset classes and sectors to reduce risk and minimize the impact of market downturns.
+        \n- Stick to Your Investment Plan: Stick to your predetermined investment strategy and resist the urge to react emotionally to market movements.
+        \n- Consider Dollar-Cost Averaging: Invest regularly over time to take advantage of market dips and avoid trying to time the market.
+        \n\nRemember, volatility is a normal part of investing, and staying disciplined during turbulent times can lead to long-term financial success.'
+);
+
+CREATE TABLE IF NOT EXISTS community_comment (
+	comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	post_id INTEGER NOT NULL,
+	user_id INTEGER NOT NULL,
+	comment TEXT NOT NULL,
+	FOREIGN KEY (post_id)
+		REFERENCES community_post (post_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+UPDATE SQLITE_SEQUENCE SET seq = 349999 WHERE name = 'community_post';
+
+DELETE FROM community_comment;
+
+CREATE TABLE IF NOT EXISTS mentorship (
+	user_id INTEGER NOT NULL,
+	mentor_id INTEGER NOT NULL,
+	mentor_status TEXT DEFAULT 'FALSE' NOT NULL,
+	PRIMARY KEY (user_id, mentor_id),
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (mentor_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM mentorship;
+
+INSERT INTO mentorship (user_id, mentor_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Oliver'
+		AND user_lname = 'Bennett')
+);
+
+INSERT INTO mentorship (user_id, mentor_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Lucas'
+		AND user_lname = 'Morales')
+);
+
+CREATE TABLE IF NOT EXISTS invitation (
+	user_id INTEGER NOT NULL,
+	invite_id INTEGER NOT NULL,
+	invite_status TEXT DEFAULT 'FALSE' NOT NULL,
+	FOREIGN KEY (user_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION,
+	FOREIGN KEY (invite_id)
+		REFERENCES user (user_id)
+			ON DELETE CASCADE
+			ON UPDATE NO ACTION
+);
+
+DELETE FROM invitation;
+
+INSERT INTO invitation (user_id, invite_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Elena'
+		AND user_lname = 'Rodriguez')
+);
+
+INSERT INTO invitation (user_id, invite_id)
+VALUES (
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Isabelle'
+		AND user_lname = 'Mitchell'),
+	(SELECT user_id
+	FROM user
+	WHERE user_fname = 'Malik'
+		AND user_lname = 'Patel')
 );</sql><current_tab id="0"/></tab_sql></sqlb_project>

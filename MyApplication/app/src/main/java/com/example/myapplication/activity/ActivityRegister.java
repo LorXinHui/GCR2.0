@@ -22,6 +22,7 @@ public class ActivityRegister extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        setTitle("JobSparks");
         etUser = findViewById(R.id.etUsername);
         etPwd = findViewById(R.id.etPassword);
         etRepwd = findViewById(R.id.etRePassword);

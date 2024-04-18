@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -23,6 +24,7 @@ public class ActivityLogin extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setTitle("JobSparks");
         dbHelper = new DatabaseHelper(this);
         etUsername = findViewById(R.id.etUsername);
         etPwd = findViewById(R.id.etPassword);
@@ -36,6 +38,15 @@ public class ActivityLogin extends AppCompatActivity {
                     startActivity(intent);
                 } else
                     Toast.makeText(ActivityLogin.this, "Login Failed", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        TextView register = findViewById(R.id.register);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityLogin.this, ActivityRegister.class);
+                startActivity(intent);
             }
         });
     }
