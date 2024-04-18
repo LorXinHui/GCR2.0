@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,13 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.R;
+import com.example.myapplication.database.DatabaseHelper;
+
 public class ActivityRegister extends AppCompatActivity {
     EditText etUser, etPwd, etRepwd;
     Button btnRegister, btnGoToLogin;
-    DBHelper dBHelper;
+    DatabaseHelper dBHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class ActivityRegister extends AppCompatActivity {
         etRepwd = findViewById(R.id.etRePassword);
         btnRegister = findViewById(R.id.btnRegister);
         btnGoToLogin = findViewById(R.id.btnGoToLogin);
-        dBHelper = new DBHelper(this);
+        dBHelper = new DatabaseHelper(this);
         btnGoToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
