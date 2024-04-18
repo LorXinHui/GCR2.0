@@ -105,29 +105,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public User getUser(String username){
-        SQLiteDatabase myDB = this.getWritableDatabase();
+        SQLiteDatabase myDB = this.getReadableDatabase();
         Cursor cursor = myDB.rawQuery("select * from user where user_fname = ?", new String[]{username});
+        User user = null;
 
-        if (cursor.getCount() > 0){
-            int userId = cursor.getInt(0);
-            String userFname = cursor.getString(1);
-            String userLname = cursor.getString(2);
-            String userStatus = cursor.getString(3);
-            String userPosition = cursor.getString(4);
-            String userEmail = cursor.getString(5);
-            String userContact = cursor.getString(6);
-            String userName = cursor.getString(7);
+        if (cursor.moveToFirst()) { // Move cursor to the first row
+            // Retrieve data from the cursor
+            @SuppressLint("Range")
+            int userId = cursor.getInt(cursor.getColumnIndex("user_id")); // Adjust column index as needed
+            @SuppressLint("Range")
+            String userFname = cursor.getString(cursor.getColumnIndex("user_fname"));
+            @SuppressLint("Range")
+            String userLname = cursor.getString(cursor.getColumnIndex("user_lname"));
+            @SuppressLint("Range")
+            String userStatus = cursor.getString(cursor.getColumnIndex("user_status"));
+            @SuppressLint("Range")
+            String userPosition = cursor.getString(cursor.getColumnIndex("user_position"));
+            @SuppressLint("Range")
+            String userEmail = cursor.getString(cursor.getColumnIndex("user_email"));
+            @SuppressLint("Range")
+            String userContact =  cursor.getString(cursor.getColumnIndex("user_contact"));
+            @SuppressLint("Range")
+            String userName = cursor.getString(cursor.getColumnIndex("username"));
 
-            User user = new User(userId, userFname,userLname, userName);
-            user.setUser_status(userStatus);
-            user.setUser_position(userPosition);
-            user.setUser_email(userEmail);
-            user.setUser_contact(userContact);
-            cursor.close();
-
-            return user;
+            // Create User object with retrieved data
+            user = new User(userId, userFname, userLname, userName);
         }
-        return null;
+        cursor.close(); // Close the cursor when finished
+
+        return user;
     }
 }
 

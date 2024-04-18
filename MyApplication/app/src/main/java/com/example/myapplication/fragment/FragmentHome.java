@@ -96,8 +96,7 @@ public class FragmentHome extends Fragment{
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "");
 
-        // Example: Call getUser method
-        User user = db.getUser("username");
+        User user = db.getUser(username);
         // Process user data
         if (user != null) {
             // User data retrieval successful
