@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="15dp"
+    android:nestedScrollingEnabled="false"
     tools:context=".MainActivity">
 
     <ImageView
@@ -29,14 +30,14 @@
         app:srcCompat="@drawable/profile" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="43dp"
         android:fontFamily="serif"
-        android:text="Isabella Mitchell"
+        android:text="Username"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -56,160 +57,264 @@
         app:layout_constraintTop_toBottomOf="@+id/profileBackground"
         app:srcCompat="@drawable/settings" />
 
-    <TableLayout
-        android:layout_width="410dp"
-        android:layout_height="368dp"
-        android:layout_marginTop="30dp"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9">
+        app:layout_constraintTop_toBottomOf="@+id/username">
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Status"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/user_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User Status"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:fontFamily="sans-serif"
-                android:text="Status"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:layout_marginTop="12dp">
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Position"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/user_position"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User Position"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:text="Open to work"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
-        </TableRow>
+                android:layout_marginTop="12dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="22dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Email"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/user_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User Email"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="Education"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:layout_marginTop="12dp">
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Contact Number"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/user_contact"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User Contact Number"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:text="Monash University"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
-        </TableRow>
+                android:layout_marginTop="12dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="22dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Education"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/user_uni"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User University"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="Major"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:layout_marginTop="12dp">
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Major"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/user_major"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User Major"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:text="Bachelor of Arts"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
-        </TableRow>
+                android:layout_marginTop="12dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="22dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Experience"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/user_experience"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="User Experience"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="Experience"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:layout_marginTop="12dp">
 
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Certification"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/user_certificate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="+   "
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:text="Shopee Sdn Bhd"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
-        </TableRow>
+                android:layout_marginTop="12dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="22dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Skills"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/user_skills"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:text="+   "
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="Certifications"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:layout_marginTop="12dp"
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
-                android:text="+"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="22dp">
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="Skills"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="124dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="200dp"
-                android:text="+"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-
-        </TableRow>
-
-    </TableLayout>
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:background="@drawable/dark_button_background"
+                    android:text="Save Changes"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

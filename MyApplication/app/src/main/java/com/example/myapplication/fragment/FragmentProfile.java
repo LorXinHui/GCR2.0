@@ -1,19 +1,30 @@
 package com.example.myapplication.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.activity.FragmentSettings;
+import com.example.myapplication.database.DatabaseHelper;
+import com.example.myapplication.object.User;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +32,8 @@ import com.example.myapplication.activity.FragmentSettings;
  * create an instance of this fragment.
  */
 public class FragmentProfile extends Fragment {
+
+    DatabaseHelper db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +93,38 @@ public class FragmentProfile extends Fragment {
                 startActivity(intent);
             }
         });
+
+        //get current user
+        db = new DatabaseHelper(getContext());
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "");
+        int user_id = sharedPreferences.getInt("user_id", 0);
+
+        //update details based on the current user
+        EditText userName = view.findViewById(R.id.username);
+        EditText userStatus = view.findViewById(R.id.user_status);
+        EditText userPos = view.findViewById(R.id.user_position);
+        EditText userEmail = view.findViewById(R.id.user_email);
+        EditText userContact = view.findViewById(R.id.user_contact);
+        EditText userUni = view.findViewById(R.id.user_uni);
+        EditText userMajor = view.findViewById(R.id.user_major);
+        TextView userCert = view.findViewById(R.id.user_certificate);
+        EditText userSkills = view.findViewById(R.id.user_skills);
+
+        User user = db.getUser(username);
+        if (user != null) {
+            userName.setText(user.getUser_fname() + " " + user.getUser_lname());
+            userStatus.setText(user.getUser_status());
+            userPos.setText(user.getUser_position());
+            userEmail.setText(user.getUser_email());
+            userContact.setText(user.getUser_contact());
+            userUni.setText(db.getUniversity(user_id));
+            userMajor.setText(db.getMajor(user_id));
+        } else {
+            // User not found or database operation failed
+            Log.d("User", "User not found or database operation failed");
+        }
+
         return view;
 
     }

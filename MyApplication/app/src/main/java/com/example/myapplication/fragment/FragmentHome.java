@@ -100,8 +100,10 @@ public class FragmentHome extends Fragment{
         // Process user data
         if (user != null) {
             // User data retrieval successful
-            Log.d("User", "User found: " + user.getUser_fname());
             userDisplay.setText(user.getUser_fname() + " " + user.getUser_lname());
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("user_id", user.getUser_id());
+            editor.apply();
         } else {
             // User not found or database operation failed
             Log.d("User", "User not found or database operation failed");

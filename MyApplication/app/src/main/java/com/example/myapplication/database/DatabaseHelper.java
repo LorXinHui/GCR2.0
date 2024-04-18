@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";
@@ -25,11 +26,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
 
+        /*
         try {
             copyDatabase(); // Call copyDatabase method in the constructor
         } catch (IOException e) {
             Log.e(TAG, "Error copying database", e);
         }
+         */
     }
 
     @Override
@@ -79,7 +82,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("username", username);
         contentValues.put("password", password);
         long result = myDB.insert("login", null, contentValues);
-        myDB.close();
         // if insert successfully
         if (result == -1){
             return false;
@@ -130,10 +132,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             // Create User object with retrieved data
             user = new User(userId, userFname, userLname, userName);
+            user.setUser_status(userStatus);
+            user.setUser_position(userPosition);
+            user.setUser_email(userEmail);
+            user.setUser_contact(userContact);
         }
         cursor.close(); // Close the cursor when finished
 
         return user;
+    }
+
+    public String getUniversity(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select uni_name from university where uni_id = (select uni_id from university_record where user_id = ?)", new String[]{String.valueOf(user_id)});
+
+        String university = null;
+        if (cursor.moveToFirst()){
+            university = cursor.getString(0);
+        }
+        cursor.close();
+        return university;
+    }
+
+    public String getMajor(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select major_name from university_major where major_id = (select major_id from university_record where user_id = ?)", new String[]{String.valueOf(user_id)});
+
+        String major = null;
+        if (cursor.moveToFirst()){
+            major = cursor.getString(0);
+        }
+        cursor.close();
+        return major;
     }
 }
 
