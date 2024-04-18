@@ -1,11 +1,14 @@
 package com.example.myapplication.database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.example.myapplication.object.User;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,6 +24,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
+
+        try {
+            copyDatabase(); // Call copyDatabase method in the constructor
+        } catch (IOException e) {
+            Log.e(TAG, "Error copying database", e);
+        }
     }
 
     @Override
@@ -70,7 +79,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("username", username);
         contentValues.put("password", password);
         long result = myDB.insert("login", null, contentValues);
-
         myDB.close();
         // if insert successfully
         if (result == -1){
@@ -94,6 +102,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0)
             return true;
         else return false;
+    }
+
+    public User getUser(String username){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from user where user_fname = ?", new String[]{username});
+
+        if (cursor.getCount() > 0){
+            int userId = cursor.getInt(0);
+            String userFname = cursor.getString(1);
+            String userLname = cursor.getString(2);
+            String userStatus = cursor.getString(3);
+            String userPosition = cursor.getString(4);
+            String userEmail = cursor.getString(5);
+            String userContact = cursor.getString(6);
+            String userName = cursor.getString(7);
+
+            User user = new User(userId, userFname,userLname, userName);
+            user.setUser_status(userStatus);
+            user.setUser_position(userPosition);
+            user.setUser_email(userEmail);
+            user.setUser_contact(userContact);
+            cursor.close();
+
+            return user;
+        }
+        return null;
     }
 }
 

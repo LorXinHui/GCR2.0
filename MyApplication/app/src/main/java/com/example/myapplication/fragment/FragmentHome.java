@@ -1,22 +1,28 @@
 package com.example.myapplication.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.adapter.CommunityAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.FragmentMesssage;
 import com.example.myapplication.adapter.CourseAdapter;
 import com.example.myapplication.items.CourseItem;
+import com.example.myapplication.object.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -38,6 +44,8 @@ public class FragmentHome extends Fragment{
     private RecyclerView recyclerView;
     private List<CommunityItem> communities = new ArrayList<>();
     private CommunityAdapter communityAdapter;
+
+    private DatabaseHelper db;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -79,6 +87,27 @@ public class FragmentHome extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        db = new DatabaseHelper(getContext());
+
+        //get current user from SharedPreference
+        TextView userDisplay = rootView.findViewById(R.id.username);
+
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "");
+
+        // Example: Call getUser method
+        User user = db.getUser("username");
+        // Process user data
+        if (user != null) {
+            // User data retrieval successful
+            Log.d("User", "User found: " + user.getUser_fname());
+            userDisplay.setText(user.getUser_fname() + " " + user.getUser_lname());
+        } else {
+            // User not found or database operation failed
+            Log.d("User", "User not found or database operation failed");
+            userDisplay.setText("User");
+        }
 
         messageFab = rootView.findViewById(R.id.message_fab);
         messageFab.setOnClickListener(new View.OnClickListener() {
