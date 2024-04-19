@@ -3,6 +3,7 @@ package com.example.myapplication.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -10,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,6 +28,9 @@ public class FragmentProfessional extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_professional);
+        setTitle("Courses");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         RecyclerView courseView = findViewById(R.id.courses);
 
@@ -48,5 +53,16 @@ public class FragmentProfessional extends AppCompatActivity {
 
         CourseDetailAdapter courseDetailAdapter = new CourseDetailAdapter(FragmentProfessional.this, courseList);
         courseView.setAdapter(courseDetailAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

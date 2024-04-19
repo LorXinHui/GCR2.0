@@ -188,5 +188,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return communityList;
     }
+
+    public ArrayList<String> getCert(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select cert_name from certificate where cert_id IN (select cert_id from certificate_record where user_id = ?)", new String[]{String.valueOf(user_id)});
+
+        ArrayList<String> certs = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            certs.add(cursor.getString(0));
+        }
+
+        cursor.close();
+        return certs;
+    }
+
+    public ArrayList<String> getSkill(ArrayList<String> user_cert){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        //Cursor cursor = myDB.rawQuery("select skills_name from skills where skills_id IN (select skills_id from skills_achieved where cert_id IN ?)", user_cert.toArray(new String[0]));
+
+        ArrayList<String> skills = new ArrayList<>();
+        for(String cert: user_cert){
+            Cursor cursor = myDB.rawQuery("select skills_name from skills where skills_id IN (select skills_id from skills_achieved where cert_id = (select cert_id from certificate where cert_name = ?))", new String[]{cert});
+
+            while (cursor.moveToNext()){
+                skills.add(cursor.getString(0));
+            }
+            cursor.close();
+        }
+
+        return skills;
+    }
 }
 

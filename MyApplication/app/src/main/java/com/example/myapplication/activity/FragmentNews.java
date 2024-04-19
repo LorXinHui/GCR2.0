@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ public class FragmentNews extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.community_news);
+        setTitle("Community");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Find RecyclerView in the inflated layout
         RecyclerView newsView = findViewById(R.id.news_list);
@@ -66,9 +69,21 @@ public class FragmentNews extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FragmentNews.this, MainActivity.class);
+                intent.putExtra("fragment", "community");
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
 
