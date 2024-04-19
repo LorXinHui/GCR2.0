@@ -9,8 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.myapplication.items.CommunityItem;
-import com.example.myapplication.items.NewsItem;
+import com.example.myapplication.items.CourseDetailItem;
 import com.example.myapplication.object.User;
+import com.example.myapplication.items.NewsItem;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -268,10 +269,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
             // retrieve data from the cursor
 
-
         }
         cursor.close();
         return newsList;
+    }
+
+    public ArrayList<CourseDetailItem> getCourseDetail(){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from course", null);
+
+        // create new array list
+        ArrayList<CourseDetailItem> courseList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do{
+                courseList.add(new CourseDetailItem(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3))
+                );
+            } while (cursor.moveToNext());
+            // retrieve data from the cursor
+
+
+        }
+        cursor.close();
+        return courseList;
     }
 }
 

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,15 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.activity.FragmentCourseDetails;
+import com.example.myapplication.items.CourseDetailItem;
 import com.example.myapplication.items.CourseItem;
 
 import java.util.List;
 
 public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapter.CourseDetailViewHolder> {
-    private List<CourseItem> courseItems;
+    private List<CourseDetailItem> courseItems;
     Context context;
 
-    public CourseDetailAdapter(Context context, List<CourseItem> courseItems) {
+    public CourseDetailAdapter(Context context, List<CourseDetailItem> courseItems) {
         this.context = context;
         this.courseItems = courseItems;
     }
@@ -36,7 +36,7 @@ public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CourseDetailAdapter.CourseDetailViewHolder holder, int position) {
-        CourseItem courseItem = courseItems.get(position);
+        CourseDetailItem courseItem = courseItems.get(position);
         holder.nameTextView.setText(courseItem.getCourseName());
         holder.descTextView.setText(courseItem.getCourseDesc());
         holder.moreDetails.setOnClickListener(new View.OnClickListener() {
