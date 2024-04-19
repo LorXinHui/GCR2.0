@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,8 +19,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.activity.FragmentSettings;
 import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.object.User;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -109,7 +105,9 @@ public class FragmentProfile extends Fragment {
         EditText userUni = view.findViewById(R.id.user_uni);
         EditText userMajor = view.findViewById(R.id.user_major);
         EditText userCert = view.findViewById(R.id.user_certificate);
-        EditText userSkills = view.findViewById(R.id.user_skills);
+        EditText userSkills = view.findViewById(R.id.user_skill);
+        EditText userResume = view.findViewById(R.id.user_resume);
+
 
         User user = db.getUser(username);
         if (user != null) {
