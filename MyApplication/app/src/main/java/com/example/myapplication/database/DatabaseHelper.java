@@ -218,5 +218,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return skills;
     }
+
+    public ArrayList<CommunityItem> getCommunityJoined(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from community where comm_id IN (select comm_id from community_record where user_id = ?)", new String[]{String.valueOf(user_id)});
+
+        // list of communities joined
+        ArrayList<CommunityItem> communityJoined = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            communityJoined.add(new CommunityItem(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            ));
+        }
+        cursor.close();
+        return communityJoined;
+    }
+
 }
+
+
 

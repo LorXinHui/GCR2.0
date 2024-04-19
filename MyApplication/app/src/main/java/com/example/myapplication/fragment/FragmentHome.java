@@ -123,14 +123,11 @@ public class FragmentHome extends Fragment{
         LinearLayoutManager communityLayout = new LinearLayoutManager(getActivity());
         communityView.setLayoutManager(communityLayout);
 
-        List<CommunityItem> communityList = new ArrayList<>();
-        communityList.add(new CommunityItem(100,"FinanceTalk Hub",
-                "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry"));
-        communityList.add(new CommunityItem(101,"Fintech Frontiers Forum",
-                "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance."));
+        List<CommunityItem> communityJoined = db.getCommunityJoined(1000000);
         CommunityAdapter communityAdapter = new CommunityAdapter(rootView.getContext(), getActivity().getSupportFragmentManager());
-        communityAdapter.setData(communityList);
+        communityAdapter.setData(communityJoined);
         communityView.setAdapter(communityAdapter);
+        // communityAdapter.notifyDataSetChanged();
 
         RecyclerView courseView = rootView.findViewById(R.id.course_list);
         LinearLayoutManager courseManager = new LinearLayoutManager(getActivity());
