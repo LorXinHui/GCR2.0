@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -107,6 +108,7 @@ public class FragmentProfile extends Fragment {
         EditText userCert = view.findViewById(R.id.user_certificate);
         EditText userSkills = view.findViewById(R.id.user_skill);
         EditText userResume = view.findViewById(R.id.user_resume);
+        Button save = view.findViewById(R.id.save);
 
 
         User user = db.getUser(username);
@@ -132,10 +134,19 @@ public class FragmentProfile extends Fragment {
                 skillStringBuilder.append(skill).append("\n");
             }
             userSkills.setText(skillStringBuilder.toString());
+
+            userResume.setText(user.getResume());
         } else {
             // User not found or database operation failed
             Log.d("User", "User not found or database operation failed");
         }
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.saveResume(user_id, userResume.getText().toString());
+            }
+        });
 
         return view;
 

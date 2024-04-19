@@ -9,6 +9,7 @@ public class User {
     private String user_email;
     private String user_contact;
     private String username;
+    private String resume;
 
     public int getUser_id() {
         return user_id;
@@ -72,6 +73,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 
     public User(int user_id, String user_fname, String user_lname, String username) {

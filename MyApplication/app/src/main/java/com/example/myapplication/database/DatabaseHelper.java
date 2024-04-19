@@ -37,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.e(TAG, "Error copying database", e);
         }
          */
+
     }
 
     @Override
@@ -133,6 +134,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String userContact =  cursor.getString(cursor.getColumnIndex("user_contact"));
             @SuppressLint("Range")
             String userName = cursor.getString(cursor.getColumnIndex("username"));
+            @SuppressLint("Range")
+            String resume = cursor.getString(cursor.getColumnIndex("resume"));
 
             // Create User object with retrieved data
             user = new User(userId, userFname, userLname, userName);
@@ -140,6 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             user.setUser_position(userPosition);
             user.setUser_email(userEmail);
             user.setUser_contact(userContact);
+            user.setResume(resume);
         }
         cursor.close(); // Close the cursor when finished
 
@@ -441,6 +445,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return course;
+    }
+
+    public void saveResume(int user_id, String resume){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        value.put("resume", resume);
+        myDB.update("user", value, "user_id = ?", new String[]{String.valueOf(user_id)});
+        myDB.close();
     }
 }
 
