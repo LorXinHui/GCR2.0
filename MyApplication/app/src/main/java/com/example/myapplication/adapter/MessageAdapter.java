@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.items.MessageItem;
+import com.example.myapplication.object.User;
 
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
-    private List<MessageItem> messageItems;
+    private List<User> messageItems;
 
-    public MessageAdapter(List<MessageItem> messageItems) {
+    public MessageAdapter(List<User> messageItems) {
         this.messageItems = messageItems;
     }
 
@@ -29,11 +30,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        MessageItem messageItem = messageItems.get(position);
-        holder.nameTextView.setText(messageItem.getMentor().getName());
-        holder.jobDescriptionTextView.setText(messageItem.getMentor().getJobDescription());
-        holder.emailTextView.setText(messageItem.getEmail());
-        holder.contactTextView.setText(messageItem.getContact());
+        User messageItem = messageItems.get(position);
+        holder.nameTextView.setText(messageItem.getUser_fname() + " " + messageItem.getUser_lname());
+        holder.jobDescriptionTextView.setText(messageItem.getUser_position());
+        holder.emailTextView.setText(messageItem.getUser_email());
+        holder.contactTextView.setText(messageItem.getUser_contact());
     }
 
     @Override

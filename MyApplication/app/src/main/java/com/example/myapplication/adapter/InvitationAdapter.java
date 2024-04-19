@@ -1,5 +1,7 @@
 package com.example.myapplication.adapter;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.items.InvitationItem;
 import com.example.myapplication.object.User;
 
@@ -17,8 +20,11 @@ import java.util.List;
 
 public class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.InvitationViewHolder> {
     private List<User> invitationItems;
+    private Context context;
+    DatabaseHelper db;
 
-    public InvitationAdapter(List<User> invitationItems) {
+    public InvitationAdapter(Context context, List<User> invitationItems) {
+        this.context = context;
         this.invitationItems = invitationItems;
     }
 
@@ -34,6 +40,11 @@ public class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.In
         User invitationItem = invitationItems.get(position);
         holder.nameTextView.setText(invitationItem.getUser_fname() + " " + invitationItem.getUser_lname());
         holder.jobDescriptionTextView.setText(invitationItem.getUser_position());
+
+        db = new DatabaseHelper(context);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("user_id", 0);
+
         // Implement button click listeners if needed
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +54,8 @@ public class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.In
                 holder.rejectButton.setVisibility(View.GONE);
                 holder.actionText.setVisibility(View.VISIBLE);
                 holder.actionText.setText("Accept");
+
+                db.updateStatus(userId, invitationItem.getUser_id(), "invitation");
             }
         });
 

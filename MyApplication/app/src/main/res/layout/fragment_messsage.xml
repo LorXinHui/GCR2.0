@@ -33,7 +33,7 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="4"
-        android:text="Messages"
+        android:text="Industrial Connections"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"

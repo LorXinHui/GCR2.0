@@ -95,11 +95,11 @@ public class FragmentMentorship extends Fragment{
         invitationView.setLayoutManager(invitationLayout);
 
         // Create and set adapter
-        List<User> invitationItemList = db.getInvite(userId);
+        List<User> invitationItemList = db.getInvite(userId, "FALSE");
         // Add some invitation items to the list
         //invitationItemList.add(new InvitationItem("Elena Rodriguez", "UX Designer"));
         //invitationItemList.add(new InvitationItem("Malik Patel", "Data Scientist"));
-        InvitationAdapter invitationAdapter = new InvitationAdapter(invitationItemList);
+        InvitationAdapter invitationAdapter = new InvitationAdapter(getContext(), invitationItemList);
         invitationView.setAdapter(invitationAdapter);
 
         // Find RecyclerView in the inflated layout
@@ -110,11 +110,11 @@ public class FragmentMentorship extends Fragment{
         mentorshipView.setLayoutManager(mentorshipLayout);
 
         // Create and set adapter
-        List<User> mentorshipList = db.getMentor(userId);
+        List<User> mentorshipList = db.getMentor(userId, "FALSE");
         // Add some invitation items to the list
         //mentorshipList.add(new InvitationItem("Oliver Bennett", "Chief Technology Officer (CTO)"));
         //mentorshipList.add(new InvitationItem("Lucas Morales", "Operations Manager"));
-        MentorshipAdapter mentorshipAdapter = new MentorshipAdapter(mentorshipList);
+        MentorshipAdapter mentorshipAdapter = new MentorshipAdapter(getContext(), mentorshipList);
         mentorshipView.setAdapter(mentorshipAdapter);
 
         messageFab = rootView.findViewById(R.id.message_fab);

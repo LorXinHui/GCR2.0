@@ -291,16 +291,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 );
             } while (cursor.moveToNext());
             // retrieve data from the cursor
-
-
         }
         cursor.close();
         return courseList;
     }
 
-    public ArrayList<User> getMentor(int user_id){
+    public ArrayList<User> getMentor(int user_id, String status){
         SQLiteDatabase myDB = this.getReadableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from user where user_id IN (select mentor_id from mentorship where user_id = ?)", new String[]{String.valueOf(user_id)});
+        Cursor cursor = myDB.rawQuery("select * from user where user_id IN (select mentor_id from mentorship where user_id = ? and mentor_status = ?)", new String[]{String.valueOf(user_id), status});
 
         ArrayList<User> mentors = new ArrayList<>();
         if(cursor.moveToFirst()){
@@ -336,9 +334,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mentors;
     }
 
-    public ArrayList<User> getInvite(int user_id){
+    public ArrayList<User> getInvite(int user_id, String status){
         SQLiteDatabase myDB = this.getReadableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from user where user_id IN (select invite_id from invitation where user_id = ?)", new String[]{String.valueOf(user_id)});
+        Cursor cursor = myDB.rawQuery("select * from user where user_id IN (select invite_id from invitation where user_id = ? and invite_status = ?)", new String[]{String.valueOf(user_id), status});
 
         ArrayList<User> mentors = new ArrayList<>();
         if(cursor.moveToFirst()){
@@ -372,6 +370,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return mentors;
+    }
+
+    public void updateStatus(int user_id, int connection_id, String table_name){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        String selection = null;
+
+        if (table_name.equals("mentorship")){
+            value.put("mentor_status", "TRUE");
+            selection = "mentor_id = ? and user_id = ?";
+        }else if (table_name.equals("invitation")){
+            value.put("invite_status", "TRUE");
+            selection = "invite_id = ? and user_id = ?";
+        }
+        
+        myDB.update(table_name, value, selection, new String[]{String.valueOf(connection_id), String.valueOf(user_id)});
+        myDB.close();
     }
 }
 
