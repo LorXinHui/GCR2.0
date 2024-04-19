@@ -43,7 +43,7 @@ public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, FragmentCourseDetails.class);
-                intent.putExtra("course_name", courseItem.getCourseID());
+                intent.putExtra("course_name", courseItem.getCourseName());
                 context.startActivity(intent);
             }
         });
