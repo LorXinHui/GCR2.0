@@ -123,7 +123,7 @@ public class FragmentHome extends Fragment{
         LinearLayoutManager communityLayout = new LinearLayoutManager(getActivity());
         communityView.setLayoutManager(communityLayout);
 
-        List<CommunityItem> communityJoined = db.getCommunityJoined(1000000);
+        List<CommunityItem> communityJoined = db.getCommunityJoined(user.getUser_id());
         CommunityAdapter communityAdapter = new CommunityAdapter(rootView.getContext(), getActivity().getSupportFragmentManager());
         communityAdapter.setData(communityJoined);
         communityView.setAdapter(communityAdapter);
@@ -133,19 +133,8 @@ public class FragmentHome extends Fragment{
         LinearLayoutManager courseManager = new LinearLayoutManager(getActivity());
         courseView.setLayoutManager(courseManager);
 
-        List<CourseItem> courseList = new ArrayList<>();
-        courseList.add(new CourseItem(
-                "Entrepreneurship and Innovation",
-                "Professional",
-                30,
-                "Explore the process of entrepreneurship and innovation, including idea generation, business model development, and market validation."
-        ));
-        courseList.add(new CourseItem(
-                "Investment Management",
-                "Casual",
-                80,
-                "Explore various investment strategies, portfolio management techniques, and risk assessment methods."
-        ));
+        List<CourseItem> courseList = db.getCourseProgress(sharedPreferences.getInt("user_id", 0));
+
         CourseAdapter courseAdapter = new CourseAdapter(courseList);
         courseView.setAdapter(courseAdapter);
 
