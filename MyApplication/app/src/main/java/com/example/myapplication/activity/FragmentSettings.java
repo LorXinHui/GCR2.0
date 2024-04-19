@@ -35,6 +35,7 @@ public class FragmentSettings extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.remove("username");
+                editor.remove("user_id");
 
                 Intent intent = new Intent(FragmentSettings.this, ActivityRegister.class);
                 startActivity(intent);

@@ -1,6 +1,8 @@
 package com.example.myapplication.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,8 +19,10 @@ import android.widget.TextView;
 import com.example.myapplication.activity.FragmentMesssage;
 import com.example.myapplication.adapter.InvitationAdapter;
 import com.example.myapplication.adapter.MentorshipAdapter;
+import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.items.InvitationItem;
 import com.example.myapplication.R;
+import com.example.myapplication.object.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -40,6 +44,7 @@ public class FragmentMentorship extends Fragment{
     private String mParam1;
     private String mParam2;
     private FloatingActionButton messageFab;
+    DatabaseHelper db;
 
     public FragmentMentorship() {
         // Required empty public constructor
@@ -78,6 +83,10 @@ public class FragmentMentorship extends Fragment{
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_mentorship, container, false);
 
+        db = new DatabaseHelper(getContext());
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("user_id", 0);
+
         // Find RecyclerView in the inflated layout
         RecyclerView invitationView = rootView.findViewById(R.id.invitation_list);
 
@@ -86,10 +95,10 @@ public class FragmentMentorship extends Fragment{
         invitationView.setLayoutManager(invitationLayout);
 
         // Create and set adapter
-        List<InvitationItem> invitationItemList = new ArrayList<>();
+        List<User> invitationItemList = db.getInvite(userId);
         // Add some invitation items to the list
-        invitationItemList.add(new InvitationItem("Elena Rodriguez", "UX Designer"));
-        invitationItemList.add(new InvitationItem("Malik Patel", "Data Scientist"));
+        //invitationItemList.add(new InvitationItem("Elena Rodriguez", "UX Designer"));
+        //invitationItemList.add(new InvitationItem("Malik Patel", "Data Scientist"));
         InvitationAdapter invitationAdapter = new InvitationAdapter(invitationItemList);
         invitationView.setAdapter(invitationAdapter);
 
@@ -101,10 +110,10 @@ public class FragmentMentorship extends Fragment{
         mentorshipView.setLayoutManager(mentorshipLayout);
 
         // Create and set adapter
-        List<InvitationItem> mentorshipList = new ArrayList<>();
+        List<User> mentorshipList = db.getMentor(userId);
         // Add some invitation items to the list
-        mentorshipList.add(new InvitationItem("Oliver Bennett", "Chief Technology Officer (CTO)"));
-        mentorshipList.add(new InvitationItem("Lucas Morales", "Operations Manager"));
+        //mentorshipList.add(new InvitationItem("Oliver Bennett", "Chief Technology Officer (CTO)"));
+        //mentorshipList.add(new InvitationItem("Lucas Morales", "Operations Manager"));
         MentorshipAdapter mentorshipAdapter = new MentorshipAdapter(mentorshipList);
         mentorshipView.setAdapter(mentorshipAdapter);
 

@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.items.InvitationItem;
+import com.example.myapplication.object.User;
 
 import java.util.List;
 
 public class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.InvitationViewHolder> {
-    private List<InvitationItem> invitationItems;
+    private List<User> invitationItems;
 
-    public InvitationAdapter(List<InvitationItem> invitationItems) {
+    public InvitationAdapter(List<User> invitationItems) {
         this.invitationItems = invitationItems;
     }
 
@@ -30,9 +31,9 @@ public class InvitationAdapter extends RecyclerView.Adapter<InvitationAdapter.In
 
     @Override
     public void onBindViewHolder(@NonNull InvitationViewHolder holder, int position) {
-        InvitationItem invitationItem = invitationItems.get(position);
-        holder.nameTextView.setText(invitationItem.getName());
-        holder.jobDescriptionTextView.setText(invitationItem.getJobDescription());
+        User invitationItem = invitationItems.get(position);
+        holder.nameTextView.setText(invitationItem.getUser_fname() + " " + invitationItem.getUser_lname());
+        holder.jobDescriptionTextView.setText(invitationItem.getUser_position());
         // Implement button click listeners if needed
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override

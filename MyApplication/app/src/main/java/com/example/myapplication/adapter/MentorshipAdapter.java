@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.items.InvitationItem;
+import com.example.myapplication.object.User;
 
 import java.util.List;
 
 public class MentorshipAdapter extends RecyclerView.Adapter<MentorshipAdapter.MentorshipViewHolder> {
-    private List<InvitationItem> mentorshipItems;
+    private List<User> mentorshipItems;
 
-    public MentorshipAdapter(List<InvitationItem> invitationItems) {
+    public MentorshipAdapter(List<User> invitationItems) {
         this.mentorshipItems = invitationItems;
     }
 
@@ -30,9 +31,9 @@ public class MentorshipAdapter extends RecyclerView.Adapter<MentorshipAdapter.Me
 
     @Override
     public void onBindViewHolder(@NonNull MentorshipViewHolder holder, int position) {
-        InvitationItem invitationItem = mentorshipItems.get(position);
-        holder.nameTextView.setText(invitationItem.getName());
-        holder.jobDescriptionTextView.setText(invitationItem.getJobDescription());
+        User mentor = mentorshipItems.get(position);
+        holder.nameTextView.setText(mentor.getUser_fname() + " " + mentor.getUser_lname());
+        holder.jobDescriptionTextView.setText(mentor.getUser_position());
         // Implement button click listeners if needed
         holder.mentorshipButton.setOnClickListener(new View.OnClickListener() {
             @Override

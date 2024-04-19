@@ -273,5 +273,81 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return newsList;
     }
+
+    public ArrayList<User> getMentor(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from user where user_id IN (select mentor_id from mentorship where user_id = ?)", new String[]{String.valueOf(user_id)});
+
+        ArrayList<User> mentors = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do {
+                // Retrieve data from the cursor
+                @SuppressLint("Range")
+                int userId = cursor.getInt(cursor.getColumnIndex("user_id")); // Adjust column index as needed
+                @SuppressLint("Range")
+                String userFname = cursor.getString(cursor.getColumnIndex("user_fname"));
+                @SuppressLint("Range")
+                String userLname = cursor.getString(cursor.getColumnIndex("user_lname"));
+                @SuppressLint("Range")
+                String userStatus = cursor.getString(cursor.getColumnIndex("user_status"));
+                @SuppressLint("Range")
+                String userPosition = cursor.getString(cursor.getColumnIndex("user_position"));
+                @SuppressLint("Range")
+                String userEmail = cursor.getString(cursor.getColumnIndex("user_email"));
+                @SuppressLint("Range")
+                String userContact =  cursor.getString(cursor.getColumnIndex("user_contact"));
+                @SuppressLint("Range")
+                String userName = cursor.getString(cursor.getColumnIndex("username"));
+
+                // Create User object with retrieved data
+                User user = new User(userId, userFname, userLname, userName);
+                user.setUser_status(userStatus);
+                user.setUser_position(userPosition);
+                user.setUser_email(userEmail);
+                user.setUser_contact(userContact);
+                mentors.add(user);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return mentors;
+    }
+
+    public ArrayList<User> getInvite(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from user where user_id IN (select invite_id from invitation where user_id = ?)", new String[]{String.valueOf(user_id)});
+
+        ArrayList<User> mentors = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do {
+                // Retrieve data from the cursor
+                @SuppressLint("Range")
+                int userId = cursor.getInt(cursor.getColumnIndex("user_id")); // Adjust column index as needed
+                @SuppressLint("Range")
+                String userFname = cursor.getString(cursor.getColumnIndex("user_fname"));
+                @SuppressLint("Range")
+                String userLname = cursor.getString(cursor.getColumnIndex("user_lname"));
+                @SuppressLint("Range")
+                String userStatus = cursor.getString(cursor.getColumnIndex("user_status"));
+                @SuppressLint("Range")
+                String userPosition = cursor.getString(cursor.getColumnIndex("user_position"));
+                @SuppressLint("Range")
+                String userEmail = cursor.getString(cursor.getColumnIndex("user_email"));
+                @SuppressLint("Range")
+                String userContact =  cursor.getString(cursor.getColumnIndex("user_contact"));
+                @SuppressLint("Range")
+                String userName = cursor.getString(cursor.getColumnIndex("username"));
+
+                // Create User object with retrieved data
+                User user = new User(userId, userFname, userLname, userName);
+                user.setUser_status(userStatus);
+                user.setUser_position(userPosition);
+                user.setUser_email(userEmail);
+                user.setUser_contact(userContact);
+                mentors.add(user);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return mentors;
+    }
 }
 
