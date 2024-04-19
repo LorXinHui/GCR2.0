@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -48,6 +49,12 @@ public class MainActivity extends AppCompatActivity
         bottomNavigationView
                 .setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home);
+
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("fragment")){
+            String item = intent.getStringExtra("fragment");
+            selectFragment(item);
+        }
     }
     FragmentHome fragmentHome = new FragmentHome();
     FragmentCommunity fragmentCommunity = new FragmentCommunity();
@@ -81,4 +88,24 @@ public class MainActivity extends AppCompatActivity
         }
         return false;
     }
+
+    public void selectFragment(String menuName){
+        if(menuName.equals("home")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentHome).commit();
+            setTitle("Home");
+        } else if (menuName.equals("community")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentCommunity).commit();
+            setTitle("Communities");
+        } else if (menuName.equals("mentorship")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentMentorship).commit();
+            setTitle("Industrial Mentorship");
+        } else if (menuName.equals("certificate")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentCertification).commit();
+            setTitle("Courses");
+        } else if (menuName.equals("profile")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragmentProfile).commit();
+            setTitle("Profile");
+        }
+    }
+
 }
