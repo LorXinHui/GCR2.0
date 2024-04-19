@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.NewsAdapter;
+import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.items.NewsItem;
 
 import java.util.ArrayList;
@@ -29,12 +30,20 @@ import java.util.List;
 
 public class FragmentNews extends AppCompatActivity {
 
+    DatabaseHelper db;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.community_news);
         setTitle("Community");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        db = new DatabaseHelper(FragmentNews.this);
+
+        TextView header = findViewById(R.id.header);
+        Intent intent = getIntent();
+        header.setText(intent.getStringExtra("community"));
 
         // Find RecyclerView in the inflated layout
         RecyclerView newsView = findViewById(R.id.news_list);
@@ -44,23 +53,7 @@ public class FragmentNews extends AppCompatActivity {
         newsView.setLayoutManager(newsLayout);
 
         // Create and set adapter
-        List<NewsItem> newsItemList = new ArrayList<>();
-        // Add some invitation items to the list
-        newsItemList.add(new NewsItem(
-                "Navigating Market Volatility: Tips for Investors",
-                "Guides & Tips",
-                "In light of recent market fluctuations, it's essential for investors to remain calm and stay focused on their long-term financial goals. Here are some tips for navigating market volatility: ..."
-        ));
-        newsItemList.add(new NewsItem(
-                "Understanding the Basics of Stock Market Investing",
-                "Guides & Tips",
-                "Investing in the stock market can be daunting for beginners, but understanding the basics can help you make informed decisions and build wealth over time. Firstly, it's essential to grasp the concept of stocks, which represent ownership in a company. When you buy shares of a company's stock, you become a partial owner and have the potential to benefit from the company's growth and profitability.... "
-        ));
-        newsItemList.add(new NewsItem(
-                "What Are Your Favorite Personal Finance Apps and Tools?",
-                "Discussions",
-                "In today's digital age, there's no shortage of personal finance apps and tools designed to help you manage your money more effectively. From budgeting apps and expense trackers to investment platforms and credit score monitors, the options are endless. What are your favorite personal finance apps and tools.... "
-        ));
+        List<NewsItem> newsItemList = db.getPost(intent.getStringExtra("community"));
         NewsAdapter newsAdapter = new NewsAdapter(this, this.getSupportFragmentManager(), newsItemList);
         newsView.setAdapter(newsAdapter);
 

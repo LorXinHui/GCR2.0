@@ -64,6 +64,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
                     //transaction.replace(R.id.flFragment, fragmentNews);
                     //transaction.commit();
                     Intent intent = new Intent(context, FragmentNews.class);
+                    intent.putExtra("community", communityName);
                     context.startActivity(intent);
                 }
             }

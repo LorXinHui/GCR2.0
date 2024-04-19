@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.myapplication.items.CommunityItem;
+import com.example.myapplication.items.NewsItem;
 import com.example.myapplication.object.User;
 
 import java.io.FileOutputStream;
@@ -236,7 +237,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return communityJoined;
     }
 
+
+    public ArrayList<NewsItem> getPost(String comm_name){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from community_post where comm_id = (select comm_id from community where comm_name = ?)", new String[]{comm_name});
+
+        // create new array list
+        ArrayList<NewsItem> newsList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do{
+                @SuppressLint("Range")
+                int postId = cursor.getInt(cursor.getColumnIndex("post_id")); // Adjust column index as needed
+                @SuppressLint("Range")
+                int userId = cursor.getInt(cursor.getColumnIndex("user_id"));
+                @SuppressLint("Range")
+                String commDate = cursor.getString(cursor.getColumnIndex("comm_date"));
+                @SuppressLint("Range")
+                String commTitle = cursor.getString(cursor.getColumnIndex("comm_title"));
+                @SuppressLint("Range")
+                String commType = cursor.getString(cursor.getColumnIndex("comm_type"));
+                @SuppressLint("Range")
+                String commContent = cursor.getString(cursor.getColumnIndex("comm_content"));
+
+                NewsItem post = new NewsItem(commTitle, commType, commContent);
+                post.setPost_id(postId);
+                post.setUser_id(userId);
+                post.setComm_date(commDate);
+
+                newsList.add(post);
+            } while (cursor.moveToNext());
+            // retrieve data from the cursor
+
+
+        }
+        cursor.close();
+        return newsList;
+    }
 }
-
-
 

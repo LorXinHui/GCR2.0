@@ -38,19 +38,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         NewsItem newsItem = newsItems.get(position);
-        holder.newsTitle.setText(newsItem.getTitle());
-        holder.newsCategory.setText(newsItem.getCategory());
-        holder.newsContent.setText(newsItem.getContent());
-
-        FragmentNewsDetails fragementNewsDetails = new FragmentNewsDetails();
+        holder.newsTitle.setText(newsItem.getComm_title());
+        holder.newsCategory.setText(newsItem.getComm_type());
+        holder.newsContent.setText(newsItem.getComm_content());
 
         holder.seeMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(v == holder.seeMore && fragmentManager != null){
-                    //FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    //transaction.replace(R.id.flFragment, fragementNewsDetails);
-                    //transaction.commit();
                     Intent intent = new Intent(context, FragmentNewsDetails.class);
                     context.startActivity(intent);
                 }

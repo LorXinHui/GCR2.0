@@ -18,7 +18,7 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="4"
-        android:text="FinanceTalk Hub"
+        android:text="Community Name"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
