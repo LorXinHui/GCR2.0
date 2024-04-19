@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.items.CourseDetailItem;
+import com.example.myapplication.items.CourseItem;
 import com.example.myapplication.object.User;
 import com.example.myapplication.items.NewsItem;
 
@@ -269,7 +270,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
             // retrieve data from the cursor
 
-
         }
         cursor.close();
         return newsList;
@@ -291,9 +291,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 );
             } while (cursor.moveToNext());
             // retrieve data from the cursor
+
+
         }
         cursor.close();
         return courseList;
+    }
+
+    public ArrayList<CourseItem> getCourseProgress(int user_id){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select course_name, course_mode, course_progress, course_desc from course INNER JOIN course_record ON course.course_id == course_record.course_id WHERE user_id = ?", new String[]{String.valueOf(user_id)});
+
+        // list of communities joined
+        ArrayList<CourseItem> courseProgressList = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            courseProgressList.add(new CourseItem(
+                cursor.getString(0),
+                cursor.getString(1),
+                cursor.getInt(2),
+                cursor.getString(3))
+            );
+        }
+        cursor.close();
+        return courseProgressList;
     }
 
     public ArrayList<User> getMentor(int user_id, String status){
@@ -384,7 +404,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             value.put("invite_status", "TRUE");
             selection = "invite_id = ? and user_id = ?";
         }
-        
+
         myDB.update(table_name, value, selection, new String[]{String.valueOf(connection_id), String.valueOf(user_id)});
         myDB.close();
     }
