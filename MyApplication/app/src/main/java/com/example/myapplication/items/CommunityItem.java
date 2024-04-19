@@ -1,12 +1,22 @@
 package com.example.myapplication.items;
 
 public class CommunityItem {
+    private int communityID;
     private String communityName;
     private String communityDesc;
 
-    public CommunityItem(String communityName, String communityDesc){
+    public CommunityItem(int communityID, String communityName, String communityDesc){
+        this.communityID = communityID;
         this.communityName = communityName;
         this.communityDesc = communityDesc;
+    }
+
+    public int getCommunityID() {
+        return communityID;
+    }
+
+    public void setCommunityID(int communityID) {
+        this.communityID = communityID;
     }
 
     public String getCommunityName() {
@@ -24,4 +34,5 @@ public class CommunityItem {
     public void setCommunityDesc(String communityDesc) {
         this.communityDesc = communityDesc;
     }
+
 }

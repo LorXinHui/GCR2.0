@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.object.User;
 
 import java.io.FileOutputStream;
@@ -164,6 +165,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return major;
+    }
+
+    public ArrayList<CommunityItem> getCommunity(){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from community", null);
+
+        // create new array list
+        ArrayList<CommunityItem> communityList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do{
+                communityList.add(new CommunityItem(
+                    cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2))
+                );
+            } while (cursor.moveToNext());
+            // retrieve data from the cursor
+
+
+        }
+        cursor.close();
+        return communityList;
     }
 }
 

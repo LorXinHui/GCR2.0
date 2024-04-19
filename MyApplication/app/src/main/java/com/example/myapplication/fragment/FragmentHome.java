@@ -124,9 +124,9 @@ public class FragmentHome extends Fragment{
         communityView.setLayoutManager(communityLayout);
 
         List<CommunityItem> communityList = new ArrayList<>();
-        communityList.add(new CommunityItem("FinanceTalk Hub",
+        communityList.add(new CommunityItem(100,"FinanceTalk Hub",
                 "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry"));
-        communityList.add(new CommunityItem("Fintech Frontiers Forum",
+        communityList.add(new CommunityItem(101,"Fintech Frontiers Forum",
                 "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance."));
         CommunityAdapter communityAdapter = new CommunityAdapter(rootView.getContext(), getActivity().getSupportFragmentManager());
         communityAdapter.setData(communityList);

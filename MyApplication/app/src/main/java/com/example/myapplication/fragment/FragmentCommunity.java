@@ -15,7 +15,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.adapter.CommunityAdapter;
 import com.example.myapplication.R;
@@ -42,9 +42,12 @@ public class FragmentCommunity extends Fragment{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
-    private List<CommunityItem> communities = new ArrayList<>();
+    private ArrayList<CommunityItem> communities = new ArrayList<>();
 
     private CommunityAdapter communityAdapter;
+
+    private DatabaseHelper db;
+
 
     public FragmentCommunity() {
         // Required empty public constructor
@@ -102,6 +105,8 @@ public class FragmentCommunity extends Fragment{
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         communityAdapter = new CommunityAdapter(view.getContext(), getActivity().getSupportFragmentManager());
+
+
         communityAdapter.setData(communities);
         recyclerView.setAdapter(communityAdapter);
         communityAdapter.notifyDataSetChanged();
@@ -143,14 +148,8 @@ public class FragmentCommunity extends Fragment{
 
 
     private void dataInitialize(){
-        communities = new ArrayList<>();
-        CommunityItem c1 = new CommunityItem("FinanceTalk Hub",
-                "FinanceTalk Hub is a vibrant community \n forum for professionals, enthusiasts, and \n learners in the financial industry");
+        db = new DatabaseHelper(getContext());
+        communities = db.getCommunity();
 
-        CommunityItem c2 = new CommunityItem("Fintech Frontiers Forum",
-                "Dive into discussions on fintech startups, \n digital banking,  and other \n disruptive technologies shaping \n the future of finance.");
-
-        communities.add(c1);
-        communities.add(c2);
     }
 }
