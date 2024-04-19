@@ -101,14 +101,14 @@ public class FragmentProfile extends Fragment {
         int user_id = sharedPreferences.getInt("user_id", 0);
 
         //update details based on the current user
-        EditText userName = view.findViewById(R.id.username);
+        TextView userName = view.findViewById(R.id.username);
         EditText userStatus = view.findViewById(R.id.user_status);
         EditText userPos = view.findViewById(R.id.user_position);
         EditText userEmail = view.findViewById(R.id.user_email);
         EditText userContact = view.findViewById(R.id.user_contact);
         EditText userUni = view.findViewById(R.id.user_uni);
         EditText userMajor = view.findViewById(R.id.user_major);
-        TextView userCert = view.findViewById(R.id.user_certificate);
+        EditText userCert = view.findViewById(R.id.user_certificate);
         EditText userSkills = view.findViewById(R.id.user_skills);
 
         User user = db.getUser(username);
@@ -120,6 +120,20 @@ public class FragmentProfile extends Fragment {
             userContact.setText(user.getUser_contact());
             userUni.setText(db.getUniversity(user_id));
             userMajor.setText(db.getMajor(user_id));
+
+            ArrayList<String> userCerts = db.getCert(user_id);
+            StringBuilder certStringBuilder = new StringBuilder();
+            for (String cert : userCerts) {
+                certStringBuilder.append(cert).append("\n"); // Append each certificate name followed by a newline
+            }
+            userCert.setText(certStringBuilder.toString());
+
+            ArrayList<String> userSkillList = db.getSkill(userCerts);
+            StringBuilder skillStringBuilder = new StringBuilder();
+            for (String skill: userSkillList) {
+                skillStringBuilder.append(skill).append("\n");
+            }
+            userSkills.setText(skillStringBuilder.toString());
         } else {
             // User not found or database operation failed
             Log.d("User", "User not found or database operation failed");
