@@ -291,8 +291,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 );
             } while (cursor.moveToNext());
             // retrieve data from the cursor
-
-
         }
         cursor.close();
         return courseList;
@@ -416,6 +414,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         value.put("comm_id", community.getCommunityID());
         myDB.insert("community_record", null, value);
         myDB.close();
+    }
+
+    public void enrolCourse(int user_id, CourseDetailItem course){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        value.put("user_id", user_id);
+        value.put("course_id", course.getCourseID());
+        value.put("course_progress", 0);
+        value.put("course_mode", "Professional");
+        myDB.insert("course_record", null, value);
+        myDB.close();
+    }
+
+    public CourseDetailItem getCourse(String courseName){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from course", null);
+        CourseDetailItem course = null;
+
+        if (cursor.moveToFirst()) {
+            course = new CourseDetailItem(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getString(3));
+        }
+        cursor.close();
+        return course;
     }
 }
 
