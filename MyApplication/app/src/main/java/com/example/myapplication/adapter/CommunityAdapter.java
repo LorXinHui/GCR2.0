@@ -2,8 +2,10 @@ package com.example.myapplication.adapter;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.database.DatabaseHelper;
 import com.example.myapplication.items.CommunityItem;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.FragmentNews;
@@ -29,6 +32,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
     List<CommunityItem> communities = new ArrayList<>();
     FragmentManager fragmentManager;
     Context context;
+    DatabaseHelper db;
 
     public CommunityAdapter(Context context, FragmentManager fragmentManager){
         this.context = context;
@@ -48,12 +52,15 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String communityName = communities.get(position).getCommunityName();
-        String communityDesc = communities.get(position).getCommunityDesc();
+        CommunityItem community = communities.get(position);
+        String communityName = community.getCommunityName();
+        String communityDesc = community.getCommunityDesc();
         holder.communityHead.setText(communityName);
         holder.communityDesc.setText(communityDesc);
 
-        FragmentNews fragmentNews = new FragmentNews();
+        db = new DatabaseHelper(context);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("user_id", 0);
 
         holder.joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +70,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
                     //FragmentTransaction transaction = fragmentManager.beginTransaction();
                     //transaction.replace(R.id.flFragment, fragmentNews);
                     //transaction.commit();
+                    db.joinCommunity(userId, community);
                     Intent intent = new Intent(context, FragmentNews.class);
                     intent.putExtra("community", communityName);
                     context.startActivity(intent);

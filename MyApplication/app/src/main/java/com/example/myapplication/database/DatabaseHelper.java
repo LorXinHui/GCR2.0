@@ -408,5 +408,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myDB.update(table_name, value, selection, new String[]{String.valueOf(connection_id), String.valueOf(user_id)});
         myDB.close();
     }
+
+    public void joinCommunity(int user_id, CommunityItem community){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        value.put("user_id", user_id);
+        value.put("comm_id", community.getCommunityID());
+        myDB.insert("community_record", null, value);
+        myDB.close();
+    }
 }
 
